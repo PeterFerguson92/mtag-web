@@ -1,0 +1,17 @@
+<div class="sigma_box pb-0 m-0">
+    <div class="row">
+        <!-- Data -->
+        <div class="col-md-4" *ngFor="let item of features | slice:0:3">
+            <div class="sigma_icon-block icon-block-3">
+                <div class="icon-wrapper">
+                    <i [class]="item.icon"></i>
+                </div>
+                <div class="sigma_icon-block-content">
+                    <h5> {{item.title}} </h5>
+                    <p>{{item.text}}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Data -->
+    </div>
+</div>

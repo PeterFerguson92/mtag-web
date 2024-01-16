@@ -1,0 +1,27 @@
+<!-- Services Start -->
+<div class="section section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Data -->
+            <div class="col-lg-4 col-md-6"
+                *ngFor="let item of serviceblock | paginate: { itemsPerPage: 6, currentPage: page }">
+                <a routerLink="/sermons" class="sigma_service style-1">
+                    <div class="sigma_service-thumb">
+                        <i [class]="item.icon"></i>
+                    </div>
+                    <div class="sigma_service-body">
+                        <h5>{{item.title}}</h5>
+                        <p>{{item.shorttext}}</p>
+                    </div>
+                    <span class="btn-link">Learn More <i class="far fa-arrow-right"></i> </span>
+                </a>
+            </div>
+            <!-- Data -->
+        </div>
+        <!-- Pagination Start -->
+        <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+        </pagination-controls>
+        <!-- Pagination End -->
+    </div>
+</div>
+<!-- Services End -->

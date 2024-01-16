@@ -1,0 +1,41 @@
+<div class="section section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Data -->
+            <div class="col-lg-4 col-md-6"
+                *ngFor="let item of donationblock | paginate: { itemsPerPage: 6, currentPage: page }">
+                <div class="sigma_service style-2">
+                    <div class="sigma_service-thumb">
+                        <img [src]="item.image" [alt]="item.title">
+                    </div>
+                    <div class="sigma_service-body">
+                        <h5>
+                            <a routerLink="/donation">{{item.title}}</a>
+                        </h5>
+                        <p>{{item.shorttext}}</p>
+                        <div class="sigma_service-progress">
+                            <div class="progress-content">
+                                <p>Raised: ${{item.raised | number:'1.0-0'}}</p>
+                                <p>Goal: ${{item.goal | number:'1.0-0'}}</p>
+                            </div>
+                            <div class="sigma_progress">
+                                <div class="progress">
+                                    <div class="progress-bar" [style.width.%]="item.raised * 100 / item.goal">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a routerLink="/donation" class="sigma_btn-custom">
+                            Donate
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+        <!-- Pagination Start -->
+        <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+        </pagination-controls>
+        <!-- Pagination End -->
+    </div>
+</div>

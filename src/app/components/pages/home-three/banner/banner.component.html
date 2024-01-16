@@ -1,0 +1,22 @@
+<!-- Banner Start -->
+<div class="sigma_banner banner-2">
+    <ngx-slick-carousel [config]="settings" class="sigma_banner-slider">
+        <!-- Banner Item Start -->
+        <div class="light-bg sigma_banner-slider-inner bg-cover bg-center dark-overlay dark-overlay-2 bg-norepeat" ngxSlickItem [style.background-image]="'url('+item.image+')'" *ngFor="let item of banner">
+            <div class="sigma_banner-text">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <span class="highlight-text">{{item.subtitle}}</span>
+                            <h1 class="text-white title">{{item.title}}</h1>
+                            <p class="mb-0">{{item.text}}</p>
+                            <a routerLink="/about" class="sigma_btn-custom section-button">Explore Our Church <i class="far fa-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Item End -->
+    </ngx-slick-carousel>
+</div>
+<!-- Banner End -->

@@ -1,0 +1,34 @@
+<div class="sigma_sermon-box" *ngFor="let item of getNextSermon() | slice:0:1">
+    <div class="sigma_box">
+        <span class="subtitle">Latest Sermons</span>
+        <h4 class="title mb-0">
+            <a routerLink="/sermon-details/{{item.id}}">{{item.title}}</a>
+        </h4>
+        <ul class="sigma_sermon-info mb-0">
+            <li *ngFor="let author of getAuthor(item.author)">
+                <i class="far fa-user"></i>
+                Message From
+                <a routerLink="/sermon/author/{{author.id}}" class="ms-2"><u>{{author.name}}</u></a>
+            </li>
+            <li class="mt-0 ms-4">
+                <i class="far fa-calendar-check"></i>
+                {{item.sermondate}}
+            </li>
+        </ul>
+        <ul class="sigma_sm square">
+            <!-- Data -->
+            <li *ngFor="let social of item.social">
+                <a href="{{social.url}}">
+                    <i [class]="social.icon"></i>
+                </a>
+            </li>
+            <!-- Data -->
+        </ul>
+        <div class="sigma_audio-player">
+            <div class="audio-wrapper w-100" id="player-container">
+                <div class="w-100" plyr plyrTitle="{{item.title}}" plyrType="audio" [plyrPlaysInline]="true"
+                    [plyrSources]="audioSources"></div>
+            </div>
+        </div>
+    </div>
+</div>

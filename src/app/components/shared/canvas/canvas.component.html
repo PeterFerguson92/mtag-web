@@ -1,0 +1,50 @@
+<div class="sidebar d-block">
+    <div class="sidebar-widget widget-logo">
+        <img src="assets/img/logo.png" class="mb-30" alt="img">
+        <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada.
+            Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+    </div>
+    <!-- Instagram Start -->
+    <div class="sidebar-widget widget-ig">
+        <h5 class="widget-title">Instagram</h5>
+        <div class="row">
+            <!-- Data -->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6" *ngFor="let item of insta | slice:0:6">
+                <a href="#" class="sigma_ig-item">
+                    <img [src]="item.image" alt="ig">
+                </a>
+            </div>
+            <!-- Data -->
+        </div>
+    </div>
+    <!-- Instagram End -->
+    <!-- Social Media Start -->
+    <div class="sidebar-widget">
+        <h5 class="widget-title">Follow Us</h5>
+        <div class="sigma_post-share">
+            <ul class="sigma_sm square light">
+                <li>
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Social Media End -->
+</div>

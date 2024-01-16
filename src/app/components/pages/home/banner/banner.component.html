@@ -1,0 +1,27 @@
+<!-- Banner Start -->
+<div class="sigma_banner banner-1 bg-cover light-overlay bg-center bg-norepeat" [style.background-image]="'url(assets/img/banner/9.jpg)'">
+    <ngx-slick-carousel [config]="settings" class="sigma_banner-slider">
+        <!-- Banner Item Start -->
+        <div ngxSlickItem class="sigma_banner-slider-inner" *ngFor="let item of banner">
+            <div class="sigma_banner-text">
+                <div class="container position-relative">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6" [ngClass]="item.position">
+                            <div class="sigma_box primary-bg banner-cta">
+                                <h1 class="text-white title">{{item.title}}</h1>
+                                <p class="blockquote light light-border mb-0">{{item.text}}</p>
+                                <div class="section-button d-flex align-items-center">
+                                    <a routerLink="/contact" class="sigma_btn-custom secondary">Join Today <i class="far fa-arrow-right"></i> </a>
+                                    <a routerLink="/donation" class="ms-3 sigma_btn-custom light text-white">Donate Us <i class="far fa-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="d-none d-lg-block" [src]="item.image" [alt]="item.title" [ngClass]="item.imageposition">
+                </div>
+            </div>
+        </div>
+        <!-- Banner Item End -->
+    </ngx-slick-carousel>
+</div>
+<!-- Banner End -->

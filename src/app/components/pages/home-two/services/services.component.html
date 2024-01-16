@@ -1,0 +1,32 @@
+<!-- sermon Start -->
+<div class="section section-padding pattern-squares dark-bg-2">
+    <div class="container">
+        <div class="section-title text-start">
+            <p class="subtitle">service</p>
+            <h4 class="title text-white">How We Can Help</h4>
+        </div>
+        <div class="row">
+            <!-- Data -->
+            <div [ngClass]="item.id === 2 ? 'col-lg-4 col-md-6 mt-negative-sm':'col-lg-4 col-md-6' && item.id === 3 ? 'col-lg-4 col-md-6 mt-negative-sm':'col-lg-4 col-md-6'"
+                *ngFor="let item of serviceblock | slice:0:3">
+                <a routerLink="/services" class="sigma_service style-1"
+                    [ngClass]="item.id === 2 ? 'secondary-bg':'primary-bg' && item.id === 3 ? 'bg-white':'primary-bg'">
+                    <div class="sigma_service-thumb">
+                        <i [ngClass]="[item.icon,item.id === 1 ?'text-white':'']"></i>
+                    </div>
+                    <div class="sigma_service-body">
+                        <h5 [ngClass]="item.id === 3 ?'':'text-white'">{{item.title}}</h5>
+                        <p [ngClass]="item.id === 3 ?'':'text-white'">{{item.shorttext}} </p>
+                    </div>
+                    <span class="btn-link" [ngClass]="item.id === 3 ?'':'text-white'">Learn More <i class="far fa-arrow-right" [ngClass]="item.id === 3 ?'':'text-white'"></i> </span>
+                </a>
+            </div>
+            <!-- Data -->
+        </div>
+        <div class="text-end">
+            <a routerLink="/services" class="btn-link text-white"> Get Started Now <i
+                    class="custom-primary far fa-arrow-right"></i> </a>
+        </div>
+    </div>
+</div>
+<!-- sermon End -->

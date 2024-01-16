@@ -1,0 +1,22 @@
+<!-- Portfolio Start -->
+<div class="section section-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Data -->
+            <div class="col-lg-4" *ngFor="let item of ministryblock | slice:0:3">
+                <div class="sigma_portfolio-item">
+                    <img [src]="item.image" [alt]="item.title">
+                    <div class="sigma_portfolio-item-content">
+                        <div class="sigma_portfolio-item-content-inner">
+                            <h5> <a routerLink="/ministry-details/{{item.id}}">{{item.title}}</a> </h5>
+                            <p class="blockquote bg-transparent">{{item.shorttext | slice:0:70}}</p>
+                        </div>
+                        <a routerLink="/ministry-details/{{item.id}}"><i class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+    </div>
+</div>
+<!-- Portfolio End -->

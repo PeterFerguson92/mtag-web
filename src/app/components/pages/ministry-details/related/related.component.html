@@ -1,0 +1,17 @@
+<div *ngFor="let data of ministrydetails">
+    <ngx-slick-carousel [config]="settings" class="portfolio-slider">
+        <!-- Data -->
+        <div class="sigma_portfolio-item style-3" ngxSlickItem *ngFor="let item of getPostsByCategory(data.category)">
+            <img [src]="item.image" [alt]="item.title">
+            <div class="sigma_portfolio-item-content">
+                <div class="sigma_portfolio-item-content-inner">
+                    <a routerLink="/ministry/cat/{{cat.id}}"
+                        *ngFor="let cat of getCategories(item.category) | slice:0:1">{{cat.title}}</a>
+                    <h5> <a routerLink="/ministry-details/{{item.id}}"> {{item.title}} </a> </h5>
+                </div>
+                <a routerLink="/ministry-details/{{item.id}}"><i class="far fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <!-- Data -->
+    </ngx-slick-carousel>
+</div>

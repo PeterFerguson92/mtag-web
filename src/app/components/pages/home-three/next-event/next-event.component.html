@@ -1,0 +1,24 @@
+<div class="sigma_sermon-box" *ngFor="let item of getNextEvent() | slice:0:1">
+    <div class="sigma_box">
+        <span class="subtitle">Next Event</span>
+        <h4 class="title mb-0">
+            <a routerLink="/event-details/{{item.id}}">{{item.title}}</a>
+        </h4>
+        <div class="sigma_sermon-info">
+            <div class="sigma_sermon-date" [innerHtml]="getDateInitials(item.eventdate)"></div>
+            <ul class="sigma_sermon-descr m-0">
+                <li>
+                    <i class="far fa-clock"></i>
+                    {{item.eventtime}}
+                </li>
+                <li>
+                    <i class="far fa-map-marker-alt"></i>
+                    {{item.location}}
+                </li>
+            </ul>
+        </div>
+        <div class="section-button d-flex align-items-center">
+            <a routerLink="/event-details/{{item.id}}" class="sigma_btn-custom secondary">Join Now <i class="far fa-arrow-right"></i> </a>
+        </div>
+    </div>
+</div>

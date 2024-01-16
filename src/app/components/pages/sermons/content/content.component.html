@@ -1,0 +1,45 @@
+<div class="section section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Data -->
+            <div class="col-lg-6" *ngFor="let item of sermonblock | paginate: { itemsPerPage: 4, currentPage: page }">
+                <div class="sigma_sermon-box">
+                    <div class="sigma_sermon-image">
+                        <img [src]="item.image" [alt]="item.title">
+                    </div>
+                    <div class="sigma_box">
+                        <span class="subtitle">Latest Sermons</span>
+                        <h4 class="title mb-0">
+                            <a routerLink="/sermon-details/{{item.id}}">{{item.title}}</a>
+                        </h4>
+                        <ul class="sigma_sermon-info mb-0">
+                            <li *ngFor="let author of getAuthor(item.author)">
+                                <i class="far fa-user"></i>
+                                Message From
+                                <a routerLink="/sermon/author/{{author.id}}" class="ms-2"><u>{{author.name}}</u></a>
+                            </li>
+                            <li class="mt-0 ms-4">
+                                <i class="far fa-calendar-check"></i>
+                                {{item.sermondate}}
+                            </li>
+                        </ul>
+                        <ul class="sigma_sm square">
+                            <!-- Data -->
+                            <li *ngFor="let social of item.social">
+                                <a href="{{social.url}}">
+                                    <i [class]="social.icon"></i>
+                                </a>
+                            </li>
+                            <!-- Data -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+        <!-- Pagination Start -->
+        <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+        </pagination-controls>
+        <!-- Pagination End -->
+    </div>
+</div>

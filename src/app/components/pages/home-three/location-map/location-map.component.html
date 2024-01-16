@@ -1,0 +1,19 @@
+<div class="section d-none d-lg-block p-0">
+    <div class="container">
+        <img src="assets/img/textures/map.png" alt="map">
+        <div class="map-markers">
+            <!-- Data -->
+            <div class="map-marker" [ngClass]="item.position" *ngFor="let item of locationmap">
+                <span *ngIf="!item.image"></span>
+                <img [src]="author.image" [alt]="author.name" *ngFor="let author of getAuthor(item.author)" />
+                <div class="map-marker-content">
+                    <p>{{item.text}}</p>
+                    <span *ngFor="let author of getAuthor(item.author)">
+                        <b class="text-white">{{author.name}}</b> / <b class="custom-primary">{{author.post}}</b>
+                    </span>
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+    </div>
+</div>

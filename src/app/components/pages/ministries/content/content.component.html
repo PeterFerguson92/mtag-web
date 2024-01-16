@@ -1,0 +1,27 @@
+<div class="section section-padding">
+    <div class="container">
+        <div class="text-center filter-items">
+            <h5 class="portfolio-trigger" [ngClass]="activeItem === 0 ? 'active' : ''" (click)="reset(0)">All</h5>
+            <h5 class="portfolio-trigger" [ngClass]="activeItem === 1+i ? 'active' : ''"
+                *ngFor="let item of category; let i = index" (click)="filterItemsByCategory(item, 1+i)">
+                {{item.title}}
+            </h5>
+        </div>
+        <div class="portfolio-filter row">
+            <!-- Data -->
+            <div class="col-lg-4" *ngFor="let item of filteredItems">
+                <div class="sigma_portfolio-item">
+                    <img [src]="item.image" [alt]="item.title">
+                    <div class="sigma_portfolio-item-content">
+                        <div class="sigma_portfolio-item-content-inner">
+                            <h5> <a routerLink="/ministry-details/{{item.id}}">{{item.title}}</a> </h5>
+                            <p class="blockquote bg-transparent">{{item.shorttext | slice:0:70}}</p>
+                        </div>
+                        <a routerLink="/ministry-details/{{item.id}}"><i class="fal fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Data -->
+        </div>
+    </div>
+</div>
