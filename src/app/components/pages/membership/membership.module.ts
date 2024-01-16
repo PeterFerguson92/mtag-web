@@ -12,12 +12,12 @@ import { MembershipContentComponent } from './membership-content/membership-cont
 @NgModule({
   declarations: [MembershipComponent, MembershipInfoComponent, MembershipContentComponent],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     MembershipRoutingModule,
     SharedModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule,
   ]
 })
 export class MembershipModule { }

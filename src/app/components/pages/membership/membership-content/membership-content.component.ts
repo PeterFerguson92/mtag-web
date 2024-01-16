@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactService } from 'src/app/components/helper/contact/contact-helper.service';
-import { Contact } from '../../../models/contact/contact';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MEMBERSHIP_SEX, MEMBERSHIP_TYPES } from 'costants';
 
 @Component({
   selector: 'app-membership-content',
@@ -8,20 +8,32 @@ import { Contact } from '../../../models/contact/contact';
   styleUrls: ['./membership-content.component.css'],
 })
 export class MembershipContentComponent implements OnInit {
-  model = new Contact();
-  submitted = false;
-  error: {} | undefined;
-  constructor(private contactService: ContactService) {}
-  onSubmit() {
-    this.submitted = true;
-    return this.contactService.contactForm(this.model).subscribe(
-      (data) => (this.model = data),
-      (error) => (this.error = error)
-    );
-  }
-  resolved(captchaResponse: string) {
-    console.log(`Resolved response token: ${captchaResponse}`);
+  addMemberForm: FormGroup;
+  memberSex = MEMBERSHIP_SEX;
+  membershipTypes = MEMBERSHIP_TYPES;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.addMemberForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      middleName: ['', Validators.required],
+      surname: ['', Validators.required],
+      phone: ['', [Validators.required]],
+      sex: [this.memberSex[0], [Validators.required]],
+      memberType: [this.membershipTypes[0], [Validators.required]],
+    });
   }
 
   ngOnInit(): void {}
+
+  getFormControl(fControlName: string): any {
+    return this.addMemberForm.get(fControlName);
+  }
+
+  onSubmit(): void {
+    const info: any = {};
+    Object.keys(this.addMemberForm.controls).forEach((control: string) => {
+      info[control] = this.getFormControl(control).value.trim();
+    });
+    return info;
+  }
 }

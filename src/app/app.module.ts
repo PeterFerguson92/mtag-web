@@ -22,7 +22,7 @@ import { PreloaderComponent } from './preloader/preloader.component';
     BrowserAnimationsModule,
     BreadcrumbModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
