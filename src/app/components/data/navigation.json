@@ -133,7 +133,12 @@
                 "id": 2.9,
                 "link": "/error-page",
                 "linkText": "Error 404"
-            }
+            },
+            {
+              "id": 2.10,
+              "link": "/membership",
+              "linkText": "membership"
+          }
         ]
     },
     {
