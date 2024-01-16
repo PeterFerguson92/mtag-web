@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://dansah-rest-production.up.railway.app/api',
+  apiUrl: 'https://mtag-admin-production.up.railway.app/api',
 };
