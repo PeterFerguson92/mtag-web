@@ -12,8 +12,13 @@ export class MembershipContentComponent implements OnInit {
   addMemberForm: FormGroup;
   memberSex = MEMBERSHIP_SEX;
   membershipTypes = MEMBERSHIP_TYPES;
+  showOkMessage = false;
+  showErrorMessage = false;
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private apiService: ApiService
+  ) {
     this.addMemberForm = this.formBuilder.group({
       name: ['', Validators.required],
       middleName: ['', Validators.required],
@@ -30,12 +35,15 @@ export class MembershipContentComponent implements OnInit {
     return this.addMemberForm.get(fControlName);
   }
 
+  isSubmitDisabled() {
+    return !this.addMemberForm.valid;
+  }
+
   onSubmit(): void {
     const info: any = {};
     Object.keys(this.addMemberForm.controls).forEach((control: string) => {
       info[control] = this.getFormControl(control).value.trim();
     });
-    console.log(JSON.stringify(info));
     this.process(info);
     return info;
   }
@@ -43,11 +51,32 @@ export class MembershipContentComponent implements OnInit {
   process(info: any): void {
     this.apiService.createMember(info).subscribe(
       (data: any) => {
-        console.log(data);
+        this.showOkMessage = true;
+        this.clearFields();
+        this.clearNotification();
       },
       (error: any) => {
-          console.log(error);
+        console.log(error);
+        this.showErrorMessage = true;
+        this.clearNotification();
       }
-  );
+    );
+  }
+
+  clearNotification(): void {
+    setTimeout(
+      // tslint:disable-next-line:typedef
+      function () {
+        this.showOkMessage = false;
+        this.showErrorMessage = false;
+      }.bind(this),
+      3000
+    );
+  }
+
+  clearFields(): void {
+    Object.keys(this.addMemberForm.controls).forEach((key) => {
+      this.addMemberForm.controls[key].reset();
+    });
   }
 }
