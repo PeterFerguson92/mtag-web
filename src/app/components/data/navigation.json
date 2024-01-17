@@ -152,6 +152,11 @@
                 "linkText": "Events"
             },
             {
+              "id": 3.1,
+              "link": "/weekly-events",
+              "linkText": "Weekly Events"
+          },
+            {
                 "id": 3.2,
                 "link": "/event-details/1",
                 "linkText": "Event Details"
