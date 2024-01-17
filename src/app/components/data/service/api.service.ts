@@ -4,14 +4,18 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-  baseUrl = environment.apiUrl + '/members/';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  createMember(data: any): Observable<any> {
+    const url = environment.apiUrl + '/members/';
+    return this.http.post(url, data);
+  }
 
-  createMember(data: any): Observable<any>  {
-    return this.http.post(this.baseUrl, data);
+  getWeeklyEvents(): Observable<any> {
+    const url = environment.apiUrl + '/activities/weekly';
+    return this.http.get(url);
   }
 }
