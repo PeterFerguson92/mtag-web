@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../data/service/api.service';
-import { CommonService } from '../../data/service/common.service';
 
 @Component({
   selector: 'app-events-weekly',
@@ -11,8 +10,7 @@ export class EventsWeeklyComponent implements OnInit {
   events: any[] = [];
   sortedEvents: any[] = [];
   constructor(
-    private apiService: ApiService,
-    private commonService: CommonService
+    private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
@@ -20,13 +18,9 @@ export class EventsWeeklyComponent implements OnInit {
       (data: any) => {
         if (data.status === 'success') {
           this.events = data.result[0].events;
-          // this.processEvents(data.result[0].events);
-          // console.log(this.events);
           this.sortedEvents = this.events.sort(function (a, b) {
             return a.day > b.day ? 1 : b.day > a.day ? -1 : 0;
           });
-          console.log(this.events);
-          console.log(this.sortedEvents);
         } else {
           this.events = [];
         }

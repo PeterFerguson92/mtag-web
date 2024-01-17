@@ -18,4 +18,9 @@ export class ApiService {
     const url = environment.apiUrl + '/activities/weekly';
     return this.http.get(url);
   }
+
+  getEventDetail(id: string): Observable<any> {
+    const url = environment.apiUrl + '/activities/event/' + id;
+    return this.http.get(url);
+  }
 }
