@@ -21,7 +21,7 @@ export class MembershipContentComponent implements OnInit {
   ) {
     this.addMemberForm = this.formBuilder.group({
       name: ['', Validators.required],
-      middleName: ['', Validators.required],
+      middleName: [''],
       surname: ['', Validators.required],
       phone: ['', [Validators.required]],
       sex: [this.memberSex[0], [Validators.required]],
@@ -35,7 +35,7 @@ export class MembershipContentComponent implements OnInit {
     return this.addMemberForm.get(fControlName);
   }
 
-  isSubmitDisabled() {
+  isSubmitDisabled(): any {
     return !this.addMemberForm.valid;
   }
 
@@ -66,7 +66,7 @@ export class MembershipContentComponent implements OnInit {
   clearNotification(): void {
     setTimeout(
       // tslint:disable-next-line:typedef
-      function () {
+      function(this: any) {
         this.showOkMessage = false;
         this.showErrorMessage = false;
       }.bind(this),
