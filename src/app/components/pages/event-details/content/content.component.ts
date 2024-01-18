@@ -6,16 +6,25 @@ import { CommonService } from 'src/app/components/data/service/common.service';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css'],
 })
-export class ContentComponent  {
+export class ContentComponent {
   @Input() event: any;
+  @Input() isProgram = false;
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService) {}
 
   getTimeDetails(startTime: string, endTime: string): string {
     return this.commonService.getTimeDetails(startTime, endTime);
   }
 
-  getDateInitials(day: string): any {
-    return this.commonService.getDateInitials(day);
+  getDateInitials(event: any): any {
+    if (this.isProgram) {
+      if (event.start_date === event.end_date) {
+        return this.commonService.getFormattedDate(event.start_date);
+      } else {
+        return this.commonService.getFormattedDate(event.start_date);
+      }
+    } else {
+      return this.commonService.getDateInitials(event.day);
+    }
   }
 }

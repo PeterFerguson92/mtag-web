@@ -64,22 +64,6 @@ const routes: Routes = [
   // { path: 'error-page', loadChildren: () => import('./components/pages/error-page/error-page.module').then(m => m.ErrorPageModule), data: { breadcrumb: 'Error 404' } },
   // Events
   {
-    path: 'event/tag/:tagId',
-    loadChildren: () =>
-      import('./components/pages/events/events.module').then(
-        (m) => m.EventsModule
-      ),
-    data: { breadcrumb: 'Events' },
-  },
-  {
-    path: 'event/speaker/:speakerId',
-    loadChildren: () =>
-      import('./components/pages/events/events.module').then(
-        (m) => m.EventsModule
-      ),
-    data: { breadcrumb: 'Events' },
-  },
-  {
     path: 'events',
     loadChildren: () =>
       import('./components/pages/events/events.module').then(
@@ -102,6 +86,14 @@ const routes: Routes = [
         (m) => m.EventDetailsModule
       ),
     data: { breadcrumb: 'Event Details' },
+  },
+  {
+    path: 'program-details/:id',
+    loadChildren: () =>
+      import('./components/pages/event-details/event-details.module').then(
+        (m) => m.EventDetailsModule
+      ),
+    data: { breadcrumb: 'Program Details' },
   },
   {
     path: 'membership',

@@ -23,4 +23,14 @@ export class ApiService {
     const url = environment.apiUrl + '/activities/event/' + id;
     return this.http.get(url);
   }
+
+  getActivePrograms(): Observable<any> {
+    const url = environment.apiUrl + '/activities/program/active';
+    return this.http.get(url);
+  }
+
+  getProgramDetail(id: string): Observable<any> {
+    const url = environment.apiUrl + '/activities/program/' + id;
+    return this.http.get(url);
+  }
 }

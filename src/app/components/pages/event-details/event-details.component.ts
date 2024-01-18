@@ -9,24 +9,42 @@ import { ApiService } from '../../data/service/api.service';
 })
 export class EventDetailsComponent implements OnInit {
   event: any;
+  isProgram: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit(): void {
     const snapshot = this.activatedRoute.snapshot;
+    // tslint:disable-next-line:triple-equals
+    this.isProgram = snapshot.data.breadcrumb == 'Program Details';
     const id = snapshot.paramMap.get('id');
-    if (id)
-    {
-      this.apiService.getEventDetail(id).subscribe(
-        (data) => {
-          if (data.status === 'success')
-          {
-            this.event = data.result;
+    if (id) {
+      if (this.isProgram) {
+        this.apiService.getProgramDetail(id).subscribe(
+          (data) => {
+            if (data.status === 'success') {
+              this.event = data.result;
+            }
+          },
+          (error) => {
+            console.log(error);
           }
-        },
-        (error) => {
-          console.log(error);
-        });
+        );
+      } else {
+        this.apiService.getEventDetail(id).subscribe(
+          (data) => {
+            if (data.status === 'success') {
+              this.event = data.result;
+            }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
     }
   }
 }

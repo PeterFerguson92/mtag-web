@@ -4,142 +4,23 @@
         "linkText": "Home",
         "child": true,
         "submenu": [
-            {
-                "id": 1.1,
-                "link": "/",
-                "linkText": "Home v1"
-            },
-            {
-                "id": 1.2,
-                "link": "/home-v2",
-                "linkText": "Home v2"
-            },
-            {
-                "id": 1.3,
-                "link": "/home-v3",
-                "linkText": "Home v3"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "linkText": "Pages",
-        "child": true,
-        "submenu": [
-            {
-                "id": 2.1,
-                "link": "/about",
-                "linkText": "About Us"
-            },
-            {
-                "id": 2.2,
-                "linkText": "Blog",
-                "child": true,
-                "submenu": [
-                    {
-                        "id": 2.21,
-                        "link": "/blog-grid",
-                        "linkText": "Blog Archive"
-                    },
-                    {
-                        "id": 2.22,
-                        "link": "/blog-details/1",
-                        "linkText": "Blog Details"
-                    }
-                ]
-            },
-            {
-                "id": 2.3,
-                "linkText": "Shop",
-                "child": true,
-                "submenu": [
-                    {
-                        "id": 2.31,
-                        "link": "/shop",
-                        "linkText": "Shop"
-                    },
-                    {
-                        "id": 2.32,
-                        "link": "/shop-details/1",
-                        "linkText": "Product Details"
-                    },
-                    {
-                        "id": 2.33,
-                        "link": "/wishlist",
-                        "linkText": "Wishlist"
-                    },
-                    {
-                        "id": 2.34,
-                        "link": "/cart",
-                        "linkText": "Cart"
-                    },
-                    {
-                        "id": 2.35,
-                        "link": "/checkout",
-                        "linkText": "Checkout"
-                    }
-                ]
-            },
-            {
-                "id": 2.4,
-                "linkText": "Service",
-                "child": true,
-                "submenu": [
-                    {
-                        "id": 2.41,
-                        "link": "/services",
-                        "linkText": "Service v1"
-                    },
-                    {
-                        "id": 2.42,
-                        "link": "/services-v2",
-                        "linkText": "Service v2"
-                    }
-                ]
-            },
-            {
-                "id": 2.5,
-                "link": "/broadcast",
-                "linkText": "Broadcast"
-            },
-            {
-                "id": 2.6,
-                "link": "/contact",
-                "linkText": "Contact Us"
-            },
-            {
-                "id": 2.7,
-                "linkText": "Volunteers",
-                "child": true,
-                "submenu": [
-                    {
-                        "id": 2.71,
-                        "link": "/volunteers",
-                        "linkText": "Volunteers"
-                    },
-                    {
-                        "id": 2.72,
-                        "link": "/volunteer-details/1",
-                        "linkText": "Volunteer Details"
-                    }
-                ]
-            },
-            {
-                "id": 2.8,
-                "link": "/faqs",
-                "linkText": "FAQ's"
-            },
-            {
-                "id": 2.9,
-                "link": "/error-page",
-                "linkText": "Error 404"
-            },
-            {
-              "id": 2.10,
+          {
+            "id": 1.1,
+            "link": "/",
+            "linkText": "Homepage"
+          },
+          {
+              "id": 1.2,
+              "link": "/about",
+              "linkText": "About Us"
+          },
+          {
+              "id": 1.3,
               "link": "/membership",
               "linkText": "membership"
           }
-        ]
+
+      ]
     },
     {
         "id": 3,
@@ -149,18 +30,13 @@
             {
                 "id": 3.1,
                 "link": "/events",
-                "linkText": "Events"
+                "linkText": "Programs"
             },
             {
               "id": 3.1,
               "link": "/weekly-events",
               "linkText": "Weekly Events"
-          },
-            {
-                "id": 3.2,
-                "link": "/event-details/1",
-                "linkText": "Event Details"
-            }
+          }
         ]
     },
     {
