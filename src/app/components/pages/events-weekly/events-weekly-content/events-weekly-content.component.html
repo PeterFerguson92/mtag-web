@@ -20,7 +20,7 @@
             <h5>
               <a routerLink="/event-details/{{ item.id }}">{{ item.title }}</a>
             </h5>
-            <p>{{ item.description }}</p>
+            <p>{{ item.short_description }}</p>
             <div class="sigma_post-meta">
               <a routerLink="/event-details/{{ item.id }}">
                 <i class="far fa-clock"></i> {{ getTimeDetails(item.start_time, item.end_time) }}</a
@@ -33,25 +33,15 @@
                 <i class="far fa-map-marker-alt"></i> {{ item.eventdate }}</a
               >
             </div>
-            <!-- <div class="section-button d-flex align-items-center">
+            <div class="section-button d-flex align-items-center">
               <a
                 routerLink="/event-details/{{ item.id }}"
                 class="sigma_btn-custom"
-                >Join Now <i class="far fa-arrow-right"></i>
+                >View Details <i class="far fa-arrow-right"></i>
               </a>
-            </div> -->
+            </div>
           </div>
         </article>
-        <!-- Article End -->
-        <!-- Pagination Start -->
-        <!-- <pagination-controls
-          (pageChange)="page = $event"
-          responsive="true"
-          previousLabel="<"
-          nextLabel=">"
-        >
-        </pagination-controls> -->
-        <!-- Pagination End -->
       </div>
     </div>
   </div>
