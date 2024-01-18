@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../data/service/api.service';
 
 @Component({
   selector: 'app-ministries',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ministries.component.css']
 })
 export class MinistriesComponent implements OnInit {
-
-  constructor() { }
+  ministries = [];
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.apiService.getMinistry().subscribe(
+      (data: any) => {
+        if (data.status === 'success')
+        {
+          this.ministries = data.result;
+        } else {
+          this.ministries = [];
+        }
+      },
+      (error: any) => {
+        this.ministries = [];
+        console.log(error);
+      }
+    );
   }
 
 }

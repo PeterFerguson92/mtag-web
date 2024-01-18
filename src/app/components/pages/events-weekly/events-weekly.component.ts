@@ -31,18 +31,4 @@ export class EventsWeeklyComponent implements OnInit {
       }
     );
   }
-
-  processEvents(rawEvents: any[]): void {
-    // tslint:disable-next-line:forin
-    for (const ev of rawEvents) {
-      this.events.push({
-        id: ev.id,
-        title: ev.title,
-        image: ev.cover_image_path,
-        shorttext: ev.description,
-        location: ev.location,
-        eventdate: '31 August 2022',
-      });
-    }
-  }
 }

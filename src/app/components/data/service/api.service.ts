@@ -33,4 +33,14 @@ export class ApiService {
     const url = environment.apiUrl + '/activities/program/' + id;
     return this.http.get(url);
   }
+
+  getMinistry(): Observable<any> {
+    const url = environment.apiUrl + '/ministries/';
+    return this.http.get(url);
+  }
+
+  getMinistryDetail(id: string): Observable<any> {
+    const url = environment.apiUrl + '/ministries/detail' + id;
+    return this.http.get(url);
+  }
 }

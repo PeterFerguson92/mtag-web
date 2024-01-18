@@ -36,11 +36,7 @@ const routes: Routes = [
   // { path: 'sermon/author/:authorId', loadChildren: () => import('./components/pages/sermons/sermons.module').then(m => m.SermonsModule), data: { breadcrumb: 'Sermons' } },
   // { path: 'sermons', loadChildren: () => import('./components/pages/sermons/sermons.module').then(m => m.SermonsModule), data: { breadcrumb: 'Sermons' } },
   // { path: 'sermon-details/:id', loadChildren: () => import('./components/pages/sermon-details/sermon-details.module').then(m => m.SermonDetailsModule), data: { breadcrumb: 'Sermon Details' } },
-  // // Ministry
-  // { path: 'ministry/cat/:catId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
-  // { path: 'ministry/client/:clientId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
-  // { path: 'ministries', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
-  // { path: 'ministry-details/:id', loadChildren: () => import('./components/pages/ministry-details/ministry-details.module').then(m => m.MinistryDetailsModule), data: { breadcrumb: 'Ministry Details' } },
+
   // // Services
   // { path: 'services', loadChildren: () => import('./components/pages/services/services.module').then(m => m.ServicesModule), data: { breadcrumb: 'Services' } },
   // { path: 'services-v2', loadChildren: () => import('./components/pages/services-two/services-two.module').then(m => m.ServicesTwoModule), data: { breadcrumb: 'Services' } },
@@ -63,6 +59,11 @@ const routes: Routes = [
   // // Error page
   // { path: 'error-page', loadChildren: () => import('./components/pages/error-page/error-page.module').then(m => m.ErrorPageModule), data: { breadcrumb: 'Error 404' } },
   // Events
+   // // Ministry
+  { path: 'ministry/cat/:catId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
+  { path: 'ministry/client/:clientId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
+  { path: 'ministries', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
+  { path: 'ministry-details/:id', loadChildren: () => import('./components/pages/ministry-details/ministry-details.module').then(m => m.MinistryDetailsModule), data: { breadcrumb: 'Ministry Details' } },
   {
     path: 'events',
     loadChildren: () =>
