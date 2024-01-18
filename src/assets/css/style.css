@@ -553,7 +553,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #bf0a30;
+    background-color: #eeedee;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1801,7 +1801,7 @@ textarea.form-control {
   margin-right: -5px;
   margin-left: -5px;
 }
-.form-row>.col, 
+.form-row>.col,
 .form-row>[class*=col-] {
     padding-right: 5px;
     padding-left: 5px;
@@ -2967,7 +2967,7 @@ table img {
 .sigma_header-inner ul.navbar-nav > li > a{
   padding-left: 10px;
   padding-right: 10px;
-} 
+}
 
 /* Header Bottom */
 .sigma_header-bottom {
@@ -9775,7 +9775,7 @@ small {
   color: #fff;
 }
 .sigma_post-share .sigma_sm li a:hover i,
-.sigma_portfolio-item.style-3:hover .sigma_portfolio-item-content h5 a, 
+.sigma_portfolio-item.style-3:hover .sigma_portfolio-item-content h5 a,
 .sigma_portfolio-item.style-2:hover .sigma_portfolio-item-content h5 a,
 .sigma_footer.sigma_footer-dark .footer-widget ul li a:hover{
   color: #bf0a30;
@@ -9802,7 +9802,7 @@ small {
 .sidebar-widget.widget-speakers .card:last-child{
   margin-bottom: -20px;
 }
-.custom-form .form-group i, 
+.custom-form .form-group i,
 .custom-form .form-control{
   border-color: #fff;
 }

@@ -69,7 +69,7 @@ const routes: Routes = [
       import('./components/pages/events/events.module').then(
         (m) => m.EventsModule
       ),
-    data: { breadcrumb: 'Events' },
+    data: { breadcrumb: 'Programs' },
   },
   {
     path: 'weekly-events',
