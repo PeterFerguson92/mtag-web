@@ -2,7 +2,7 @@
 <div class="sigma_banner banner-1 bg-cover light-overlay bg-center bg-norepeat" [style.background-image]="'url(assets/img/banner/9.jpg)'">
     <ngx-slick-carousel [config]="settings" class="sigma_banner-slider">
         <!-- Banner Item Start -->
-        <div ngxSlickItem class="sigma_banner-slider-inner" *ngFor="let item of banner">
+        <div ngxSlickItem class="sigma_banner-slider-inner" *ngFor="let item of banners">
             <div class="sigma_banner-text">
                 <div class="container position-relative">
                     <div class="row align-items-center">
@@ -17,7 +17,7 @@
                             </div>
                         </div>
                     </div>
-                    <img class="d-none d-lg-block" [src]="item.image" [alt]="item.title" [ngClass]="item.imageposition">
+                    <!-- <img class="d-none d-lg-block" [src]="item.image" [alt]="item.title" [ngClass]="item.imageposition"> -->
                 </div>
             </div>
         </div>

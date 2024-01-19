@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import data from "../../../data/banner.json";
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
@@ -7,7 +6,8 @@ import data from "../../../data/banner.json";
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  public banner = data;
+  @Input() banners: any;
+
   constructor() { }
   settings = {
     slidesToShow: 1,

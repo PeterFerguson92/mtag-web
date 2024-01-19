@@ -43,4 +43,8 @@ export class ApiService {
     const url = environment.apiUrl + '/ministries/detail/' + id;
     return this.http.get(url);
   }
+
+  getResource(resourceUrl: string): Observable<any> {
+    return this.http.get(environment.apiUrl + resourceUrl);
+  }
 }
