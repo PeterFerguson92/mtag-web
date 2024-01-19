@@ -40,7 +40,7 @@ export class ApiService {
   }
 
   getMinistryDetail(id: string): Observable<any> {
-    const url = environment.apiUrl + '/ministries/detail' + id;
+    const url = environment.apiUrl + '/ministries/detail/' + id;
     return this.http.get(url);
   }
 }

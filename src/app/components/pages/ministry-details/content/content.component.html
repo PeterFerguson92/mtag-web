@@ -1,47 +1,30 @@
-<div class="section" *ngFor="let item of ministrydetails">
+<div class="section" *ngIf="ministry">
     <div class="container">
         <div class="entry-content">
-            <span class="fw-600 custom-primary text-uppercase"
-                *ngFor="let cat of getCategories(item.category) | slice:0:1">{{cat.title}}</span>
-            <h3 class="entry-title">{{item.title}}</h3>
+            <h3 class="entry-title">{{ministry.name}}</h3>
             <div class="sigma_post-single-thumb">
-                <img [src]="item.image" [alt]="item.title">
-                <div class="sigma_box">
-                    <div class="sigma_list-item">
-                        <label>Ministry:</label>
-                        <span>{{item.title}}</span>
-                    </div>
-                    <div class="sigma_list-item">
-                        <label>Date:</label>
-                        <span>{{item.postdate}}</span>
-                    </div>
-                    <div class="sigma_list-item">
-                        <label>Category:</label>
-                        <span *ngFor="let cat of getCategories(item.category) | slice:0:1">{{cat.title}}</span>
-                    </div>
-                    <div class="sigma_list-item">
-                        <ul class="sigma_sm">
-                            <!-- Data -->
-                            <li *ngFor="let social of socialShare(item.title)">
-                                <a href="javascript:void(0)" (click)="openSocialPopup(social)">
-                                    <i [class]="social.iconClass"></i>
-                                </a>
-                            </li>
-                            <!-- Data -->
-                        </ul>
-                    </div>
-                </div>
+                <img [src]="ministry.cover_image_path" [alt]="ministry.name">
             </div>
-            <p>{{item.shorttext}}</p>
-            <app-detail-chart></app-detail-chart>
-            <div [innerHtml]="item.htmltext"></div>
+            <p>{{ministry.short_description}}</p>
+            <div [innerHtml]="ministry.description"></div>
+            <br>
             <div class="row">
                 <!-- Dta -->
-                <div class="col-md-4" *ngFor="let image of item.gallery">
-                    <a href="{{image}}" class="gallery-thumb">
-                        <img [src]="image" [alt]="item.title">
+                <div class="col-md-4" >
+                    <a href="{{ministry.gallery_image_path_1}}" class="gallery-thumb">
+                        <img [src]="ministry.gallery_image_path_1" [alt]="ministry.name">
                     </a>
                 </div>
+                <div class="col-md-4" >
+                  <a href="{{ministry.gallery_image_path_2}}" class="gallery-thumb">
+                      <img [src]="ministry.gallery_image_path_2" [alt]="ministry.name">
+                  </a>
+              </div>
+              <div class="col-md-4" >
+                <a href="{{ministry.gallery_image_path_3}}" class="gallery-thumb">
+                    <img [src]="ministry.gallery_image_path_3" [alt]="ministry.name">
+                </a>
+            </div>
                 <!-- Dta -->
             </div>
             <app-related></app-related>
