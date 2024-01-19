@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getResource('/homepage/').subscribe(
       (data: any) => {
-        console.log(data);
         if (data.status === 'success') {
           this.banners = data.result[0].banners;
         }
