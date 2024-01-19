@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-block-box',
   templateUrl: './block-box.component.html',
   styleUrls: ['./block-box.component.css']
 })
-export class BlockBoxComponent implements OnInit {
+export class BlockBoxComponent {
+  @Input() blocks: any;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

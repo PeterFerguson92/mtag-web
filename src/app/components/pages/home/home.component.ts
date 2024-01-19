@@ -8,13 +8,16 @@ import { ApiService } from '../../data/service/api.service';
 })
 export class HomeComponent implements OnInit {
   banners: any = [];
+  blocks: any = [];
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.apiService.getResource('/homepage/').subscribe(
       (data: any) => {
         if (data.status === 'success') {
+          console.log(data);
           this.banners = data.result[0].banners;
+          this.blocks = data.result[0].blocks;
         }
       },
       (error: any) => {

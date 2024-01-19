@@ -1,4 +1,4 @@
-<div class="section section-padding">
+<div class="section section-padding" *ngIf="blocks">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -9,8 +9,8 @@
                         <span></span>
                     </div>
                     <div class="sigma_service-body">
-                        <h5>Our Church</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod </p>
+                        <h5>{{blocks[0].block_1_title}}</h5>
+                        <p>{{blocks[0].block_1_text}}</p>
                     </div>
                 </a>
             </div>
@@ -22,8 +22,8 @@
                         <span></span>
                     </div>
                     <div class="sigma_service-body">
-                        <h5 class="text-white">Ministries</h5>
-                        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod </p>
+                        <h5 class="text-white">{{blocks[0].block_2_title}}</h5>
+                        <p class="text-white">{{blocks[0].block_2_text}}</p>
                     </div>
                 </a>
             </div>
@@ -35,8 +35,8 @@
                         <span></span>
                     </div>
                     <div class="sigma_service-body">
-                        <h5 class="text-white">Events</h5>
-                        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod </p>
+                        <h5 class="text-white">{{blocks[0].block_3_title}}</h5>
+                        <p class="text-white">{{blocks[0].block_3_text}}</p>
                     </div>
                 </a>
             </div>
