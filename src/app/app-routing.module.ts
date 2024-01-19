@@ -58,7 +58,8 @@ const routes: Routes = [
 
   // // Error page
   // { path: 'error-page', loadChildren: () => import('./components/pages/error-page/error-page.module').then(m => m.ErrorPageModule), data: { breadcrumb: 'Error 404' } },
-  // Events
+  { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule), data: { breadcrumb: 'About Us' } },
+
    // // Ministry
   { path: 'ministry/cat/:catId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
   { path: 'ministry/client/:clientId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },

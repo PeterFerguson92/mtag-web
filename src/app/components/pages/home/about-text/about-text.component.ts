@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-about-text',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-text.component.css']
 })
 export class AboutTextComponent implements OnInit {
-
+  @Input() aboutUs: any;
   constructor() { }
 
   ngOnInit(): void {

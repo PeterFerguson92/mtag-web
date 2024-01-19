@@ -9,6 +9,7 @@ import { ApiService } from '../../data/service/api.service';
 export class HomeComponent implements OnInit {
   banners: any = [];
   blocks: any = [];
+  aboutUs: any;
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
           console.log(data);
           this.banners = data.result[0].banners;
           this.blocks = data.result[0].blocks;
+          this.aboutUs = data.result[0].aboutUs;
         }
       },
       (error: any) => {

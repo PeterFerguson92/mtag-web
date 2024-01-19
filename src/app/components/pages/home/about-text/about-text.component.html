@@ -1,4 +1,4 @@
-<section class="section pt-0">
+<section class="section pt-0" *ngIf="aboutUs">
     <div class="container">
         <div class="row">
             <div class="col-lg-5 d-none d-lg-block">
@@ -10,10 +10,10 @@
             <div class="col-lg-7">
                 <div class="me-lg-30">
                     <div class="section-title mb-0 text-start">
-                        <p class="subtitle">We Have 25+ Years of Experience</p>
-                        <h4 class="title">We Are A Church That Believes In God.</h4>
+                        <p class="subtitle">{{aboutUs.homepage_display_header}}</p>
+                        <h4 class="title">{{aboutUs.homepage_display_title}}</h4>
                     </div>
-                    <p class="blockquote bg-transparent"> We are a church that belives in Jesus christ and the followers and We are a church that belives in Jesus christ </p>
+                    <p class="blockquote bg-transparent">{{aboutUs.homepage_display_text}}</p>
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="sigma_icon-block icon-block-3">
@@ -21,8 +21,8 @@
                                     <i class="flaticon-church-2"></i>
                                 </div>
                                 <div class="sigma_icon-block-content">
-                                    <h5> Helping Hand </h5>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed.</p>
+                                    <h5>{{aboutUs.homepage_display_info_1}}</h5>
+                                    <p>{{aboutUs.homepage_display_info_1_text}}</p>
                                 </div>
                             </div>
                         </div>
@@ -32,8 +32,8 @@
                                     <i class="flaticon-charity"></i>
                                 </div>
                                 <div class="sigma_icon-block-content">
-                                    <h5> Open Hearts </h5>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed.</p>
+                                    <h5>{{aboutUs.homepage_display_info_2}}</h5>
+                                    <p>{{aboutUs.homepage_display_info_2_text}}</p>
                                 </div>
                             </div>
                         </div>
