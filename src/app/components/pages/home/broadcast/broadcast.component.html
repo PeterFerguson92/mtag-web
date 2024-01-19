@@ -1,17 +1,17 @@
-<div class="section section-padding pt-0">
+<div class="section section-padding pt-0" *ngIf="videos">
     <div class="container">
         <div class="section-title text-center">
-            <p class="subtitle">Watch Video</p>
-            <h4 class="title">Our Live Broadcast</h4>
+            <p class="subtitle">{{header}}</p>
+            <h4 class="title">{{title}}</h4>
         </div>
         <div class="row sigma_broadcast-video">
             <!-- Data -->
-            <div class="col-12 mb-5" *ngFor="let item of broadcast | slice:0:1">
+            <div class="col-12 mb-5">
                 <div class="row g-0">
                     <div class="col-lg-6">
                         <div class="sigma_video-popup-wrap">
-                            <img [src]="item.image" [alt]="item.title">
-                            <a href="{{item.videourl}}" class="sigma_video-popup popup-youtube">
+                            <img [src]="getVideoImage(featuredVideo.image)" [alt]="featuredVideo.title">
+                            <a href="{{featuredVideo.url}}" class="sigma_video-popup popup-youtube">
                                 <i class="fas fa-play"></i>
                             </a>
                         </div>
@@ -19,19 +19,19 @@
                     <div class="col-lg-6">
                         <div class="sigma_box m-0 h-100 d-flex align-items-center">
                             <div>
-                                <p class="custom-primary mb-0 fw-600 fs-16">{{item.broadcastdate}}</p>
-                                <h4 class="title">{{item.title}}</h4>
-                                <p class="m-0">{{item.text}}</p>
+                                <p class="custom-primary mb-0 fw-600 fs-16">{{featuredVideo.date}}</p>
+                                <h4 class="title">{{featuredVideo.title}}</h4>
+                                <p class="m-0">{{featuredVideo.description}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Data -->
-            <div class="col-lg-3 col-sm-6 mb-30" *ngFor="let item of broadcast | slice:1:5">
+            <div class="col-lg-3 col-sm-6 mb-30" *ngFor="let item of ntVideos">
                 <div class="sigma_video-popup-wrap">
-                    <img [src]="item.image" [alt]="item.title">
-                    <a href="{{item.videourl}}" class="sigma_video-popup popup-sm popup-youtube">
+                    <img [src]="getVideoImage(item.image)" [alt]="item.title">
+                    <a href="{{item.url}}" class="sigma_video-popup popup-sm popup-youtube">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>

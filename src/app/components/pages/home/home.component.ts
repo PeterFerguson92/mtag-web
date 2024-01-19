@@ -11,6 +11,10 @@ export class HomeComponent implements OnInit {
   blocks: any = [];
   aboutUs: any;
   details: any;
+  videos: any;
+  videoHeader = '';
+  videoTitle = '';
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -22,6 +26,9 @@ export class HomeComponent implements OnInit {
           this.blocks = data.result[0].blocks;
           this.aboutUs = data.result[0].aboutUs;
           this.details = data.result[0].details;
+          this.videos = data.result[0].media.videos;
+          this.videoHeader = data.result[0].media.videos_header;
+          this.videoTitle = data.result[0].media.videos_title;
         }
       },
       (error: any) => {
