@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HelperService } from '../../helper/helper.service';
 import { ProductService } from '../../helper/shop/product.service';
 
@@ -8,6 +8,7 @@ import { ProductService } from '../../helper/shop/product.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent extends HelperService implements OnInit {
+  @Input() details: any;
   public cartlength: number | undefined;
   constructor(
     private productService: ProductService
