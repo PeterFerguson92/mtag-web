@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   videos: any;
   videoHeader = '';
   videoTitle = '';
+  leadershipHeader = '';
+  leadershipTitle = '';
+  leaders: any;
 
   constructor(private apiService: ApiService) {}
 
@@ -29,6 +32,10 @@ export class HomeComponent implements OnInit {
           this.videos = data.result[0].media.videos;
           this.videoHeader = data.result[0].media.videos_header;
           this.videoTitle = data.result[0].media.videos_title;
+          this.leaders = data.result[0].leadershipBoard.leaders;
+          this.leadershipHeader = data.result[0].leadershipBoard.leaders;
+          this.leadershipTitle = data.result[0].leadershipBoard.section_title;
+          this.leadershipHeader = data.result[0].leadershipBoard.header;
         }
       },
       (error: any) => {

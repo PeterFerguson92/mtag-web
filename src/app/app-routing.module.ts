@@ -22,9 +22,9 @@ const routes: Routes = [
   // { path: 'blog-details/:id', loadChildren: () => import('./components/pages/blog-details/blog-details.module').then(m => m.BlogDetailsModule), data: { breadcrumb: 'Blog Details' } },
   // // Pages
   // { path: 'broadcast', loadChildren: () => import('./components/pages/broadcast/broadcast.module').then(m => m.BroadcastModule), data: { breadcrumb: 'Broadcast' } },
-  // // Volunteers
-  // { path: 'volunteers', loadChildren: () => import('./components/pages/volunteers/volunteers.module').then(m => m.VolunteersModule), data: { breadcrumb: 'Volunteers' } },
-  // { path: 'volunteer-details/:id', loadChildren: () => import('./components/pages/volunteer-details/volunteer-details.module').then(m => m.VolunteerDetailsModule), data: { breadcrumb: 'Volunteer Details' } },
+  // Volunteers
+  { path: 'volunteers', loadChildren: () => import('./components/pages/volunteers/volunteers.module').then(m => m.VolunteersModule), data: { breadcrumb: 'Volunteers' } },
+  { path: 'volunteer-details/:id', loadChildren: () => import('./components/pages/volunteer-details/volunteer-details.module').then(m => m.VolunteerDetailsModule), data: { breadcrumb: 'Details' } },
   // // FAQ's
   // { path: 'faqs', loadChildren: () => import('./components/pages/faqs/faqs.module').then(m => m.FaqsModule), data: { breadcrumb: 'FAQ\'s' } },
   // // Events

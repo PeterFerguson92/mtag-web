@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
-import { VolunteerHelperService } from 'src/app/components/helper/volunteer/volunteer-helper.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-volunteers',
   templateUrl: './volunteers.component.html',
   styleUrls: ['./volunteers.component.css']
 })
-export class VolunteersComponent extends VolunteerHelperService {
-
+export class VolunteersComponent  {
+  @Input() leaders: any;
+  @Input() header: any;
+  @Input() title: any;
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { VolunteerHelperService } from 'src/app/components/helper/volunteer/volunteer-helper.service';
 
 @Component({
@@ -7,4 +7,6 @@ import { VolunteerHelperService } from 'src/app/components/helper/volunteer/volu
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent extends VolunteerHelperService {
+  @Input() leader: any;
+
 }

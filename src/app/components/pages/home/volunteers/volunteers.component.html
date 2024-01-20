@@ -3,37 +3,26 @@
     [style.background-image]="'url(assets/img/bg2.jpg)'">
     <div class="container">
         <div class="section-title text-center">
-            <p class="subtitle text-white">Who</p>
-            <h4 class="title text-white">Our Volunteers</h4>
+            <p class="subtitle text-white">{{header}}</p>
+            <h4 class="title text-white">{{title}}</h4>
         </div>
         <div class="row">
             <!-- Data -->
-            <div class="col-lg-3 col-md-6" *ngFor="let item of volunteerblock | slice:0:4">
+            <div class="col-lg-3 col-md-6" *ngFor="let item of leaders">
                 <div class="sigma_volunteers volunteers-4">
                     <div class="sigma_volunteers-thumb">
-                        <img [src]="item.image" [alt]="item.name">
-                        <ul class="sigma_sm" [ngClass]="item.visible ? 'visible':''">
-                            <li>
-                                <a href="javascript:void(0)" class="trigger-volunteers-socials"
-                                    (click)="socialTrigger(item)">
-                                    <i class="fal fa-plus"></i>
-                                </a>
-                            </li>
-                            <li *ngFor="let social of item.social"> <a href="{{social.text}}/{{item.name}}"> <i [class]="social.icon"></i> </a> </li>
-                        </ul>
+                        <img [src]="item.image" [alt]="item.fullName">
                     </div>
                     <div class="sigma_volunteers-body">
                         <div class="sigma_volunteers-info">
-                            <p class="text-white">{{item.post}}</p>
+                            <p class="text-white">{{item.role}}</p>
                             <h5 class="text-white">
-                                <a routerLink="/volunteer-details/{{item.id}}">{{item.name}}</a>
+                                <a routerLink="/volunteer-details/{{item.id}}">{{item.fullName}}</a>
                             </h5>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Data -->
         </div>
     </div>
 </div>
-<!-- volunteers End -->

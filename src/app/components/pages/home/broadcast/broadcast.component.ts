@@ -24,9 +24,11 @@ export class BroadcastComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.videos) {
-      this.featuredVideo = this.videos.filter((x: any) => x.featured)[0];
-      this.ntVideos = this.videos.filter((x: any) => !x.featured);
+    if (changes.videos.currentValue)
+    {
+      const currentVideos = changes.videos.currentValue;
+      this.featuredVideo = currentVideos.filter((x: any) => x.featured)[0];
+      this.ntVideos = currentVideos.filter((x: any) => !x.featured);
     }
   }
 
