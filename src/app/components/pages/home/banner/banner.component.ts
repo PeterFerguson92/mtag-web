@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
   @Input() banners: any;
+  @Input() bannerBackgroundImage: any;
 
   constructor() { }
   settings = {
@@ -26,6 +27,7 @@ export class BannerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.bannerBackgroundImage)
   }
 
 }

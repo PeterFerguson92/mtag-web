@@ -8,23 +8,15 @@
                 "link":"/ministries"
             },
             {
-                "title":"Volunteers",
-                "link":"/volunteers"
+                "title":"Leadership Board",
+                "link":"/leaders"
             },
             {
                 "title":"Our Church",
                 "link":"/"
             },
             {
-                "title":"Sermons",
-                "link":"/sermons"
-            },
-            {
-                "title":"Our Pastor",
-                "link":"/volunteers"
-            },
-            {
-                "title":"Events",
+                "title":"Programs",
                 "link":"/events"
             }
         ]

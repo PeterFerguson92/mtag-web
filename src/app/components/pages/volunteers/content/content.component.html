@@ -1,12 +1,12 @@
-<div class="section section-padding">
+<div class="section section-padding" *ngIf="leadership">
     <div class="container">
         <div class="row">
             <!-- Data -->
-            <div class="col-lg-3 col-md-6" *ngFor="let item of volunteerblock | paginate: { itemsPerPage: 8, currentPage: page }">
+            <div class="col-lg-3 col-md-6" *ngFor="let item of leadership.leaders">
                 <div class="sigma_volunteers volunteers-4">
                     <div class="sigma_volunteers-thumb">
-                        <img [src]="item.image" [alt]="item.name">
-                        <ul class="sigma_sm" [ngClass]="item.visible ? 'visible':''">
+                        <img [src]="item.image" [alt]="item.fullName">
+                        <!-- <ul class="sigma_sm" [ngClass]="item.visible ? 'visible':''">
                             <li>
                                 <a href="javascript:void(0)" class="trigger-volunteers-socials"
                                     (click)="socialTrigger(item)">
@@ -14,13 +14,13 @@
                                 </a>
                             </li>
                             <li *ngFor="let social of item.social"> <a href="{{social.text}}/{{item.name}}"> <i [class]="social.icon"></i> </a> </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="sigma_volunteers-body">
                         <div class="sigma_volunteers-info">
-                            <p>{{item.post}}</p>
+                            <p>{{item.role}}</p>
                             <h5>
-                                <a routerLink="/volunteer-details/{{item.id}}">{{item.name}}</a>
+                                <a routerLink="/leader-details/{{item.id}}">{{item.fullName  }}</a>
                             </h5>
                         </div>
                     </div>
@@ -29,8 +29,8 @@
             <!-- Data -->
         </div>
         <!-- Pagination Start -->
-        <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
-        </pagination-controls>
-        <!-- Pagination End --> 
+        <!-- <pagination-controls (pageChange)="page = $event" responsive="true" previousLabel="<" nextLabel=">">
+        </pagination-controls> -->
+        <!-- Pagination End -->
     </div>
 </div>

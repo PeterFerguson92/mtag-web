@@ -23,8 +23,8 @@ const routes: Routes = [
   // // Pages
   // { path: 'broadcast', loadChildren: () => import('./components/pages/broadcast/broadcast.module').then(m => m.BroadcastModule), data: { breadcrumb: 'Broadcast' } },
   // Volunteers
-  { path: 'volunteers', loadChildren: () => import('./components/pages/volunteers/volunteers.module').then(m => m.VolunteersModule), data: { breadcrumb: 'Volunteers' } },
-  { path: 'volunteer-details/:id', loadChildren: () => import('./components/pages/volunteer-details/volunteer-details.module').then(m => m.VolunteerDetailsModule), data: { breadcrumb: 'Details' } },
+  { path: 'leaders', loadChildren: () => import('./components/pages/volunteers/volunteers.module').then(m => m.VolunteersModule), data: { breadcrumb: 'Leaders' } },
+  { path: 'leader-details/:id', loadChildren: () => import('./components/pages/volunteer-details/volunteer-details.module').then(m => m.VolunteerDetailsModule), data: { breadcrumb: 'Details' } },
   // // FAQ's
   // { path: 'faqs', loadChildren: () => import('./components/pages/faqs/faqs.module').then(m => m.FaqsModule), data: { breadcrumb: 'FAQ\'s' } },
   // // Events

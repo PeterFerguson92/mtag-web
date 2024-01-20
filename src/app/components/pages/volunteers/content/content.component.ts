@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { VolunteerHelperService } from 'src/app/components/helper/volunteer/volunteer-helper.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  styleUrls: ['./content.component.css'],
 })
-export class ContentComponent extends VolunteerHelperService {
+export class ContentComponent implements OnInit {
+  @Input() leadership: any;
+
+  ngOnInit(): void {}
 }

@@ -1,6 +1,6 @@
 <!-- volunteers Start -->
 <div class="section section-padding bg-cover secondary-overlay bg-center bg-norepeat"
-    [style.background-image]="'url(assets/img/bg2.jpg)'">
+[ngStyle]="{'background-image': 'url(' + leadershipBoardBackgroundImage + ')'}">
     <div class="container">
         <div class="section-title text-center">
             <p class="subtitle text-white">{{header}}</p>
@@ -17,7 +17,7 @@
                         <div class="sigma_volunteers-info">
                             <p class="text-white">{{item.role}}</p>
                             <h5 class="text-white">
-                                <a routerLink="/volunteer-details/{{item.id}}">{{item.fullName}}</a>
+                                <a routerLink="/leader-details/{{item.id}}">{{item.fullName}}</a>
                             </h5>
                         </div>
                     </div>

@@ -9,4 +9,5 @@ export class VolunteersComponent  {
   @Input() leaders: any;
   @Input() header: any;
   @Input() title: any;
+  @Input() leadershipBoardBackgroundImage: any;
 }
