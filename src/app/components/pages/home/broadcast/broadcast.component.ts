@@ -36,7 +36,7 @@ export class BroadcastComponent implements OnInit, OnChanges {
     if (img) {
       return img;
     } else {
-      return 'assets/img/video-gallery/01.png';
+      return 'assets/img/video-gallery/video-default.png';
     }
   }
 }
