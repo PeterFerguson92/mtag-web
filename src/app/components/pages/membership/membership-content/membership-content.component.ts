@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MEMBERSHIP_SEX, MEMBERSHIP_TYPES } from 'costants';
 import { ApiService } from 'src/app/components/data/service/api.service';
 
@@ -16,6 +17,7 @@ export class MembershipContentComponent implements OnInit {
   showErrorMessage = false;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private apiService: ApiService
   ) {
@@ -40,10 +42,11 @@ export class MembershipContentComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const info: any = {};
+    const info: any = { origin: 'WEBSITE' };
     Object.keys(this.addMemberForm.controls).forEach((control: string) => {
       info[control] = this.getFormControl(control).value.trim();
     });
+
     this.process(info);
     return info;
   }
@@ -53,22 +56,25 @@ export class MembershipContentComponent implements OnInit {
       (data: any) => {
         this.showOkMessage = true;
         this.clearFields();
-        this.clearNotification();
+        this.clearNotification(true);
       },
       (error: any) => {
         console.log(error);
         this.showErrorMessage = true;
-        this.clearNotification();
+        this.clearNotification(false);
       }
     );
   }
 
-  clearNotification(): void {
+  clearNotification(result: boolean): void {
     setTimeout(
       // tslint:disable-next-line:typedef
       function(this: any) {
         this.showOkMessage = false;
         this.showErrorMessage = false;
+        if (result) {
+          this.router.navigate(['/']);
+        }
       }.bind(this),
       3000
     );
