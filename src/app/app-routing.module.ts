@@ -59,7 +59,8 @@ const routes: Routes = [
   // // Error page
   // { path: 'error-page', loadChildren: () => import('./components/pages/error-page/error-page.module').then(m => m.ErrorPageModule), data: { breadcrumb: 'Error 404' } },
   { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule), data: { breadcrumb: 'About Us' } },
-
+{ path: 'donation', loadChildren: () => import('./components/pages/donation/donation.module').then(m => m.DonationModule), data: { breadcrumb: 'Donation Form' } },
+  { path: 'donation-grid', loadChildren: () => import('./components/pages/donation-grid/donation-grid.module').then(m => m.DonationGridModule), data: { breadcrumb: 'Donation' } },
    // // Ministry
   { path: 'ministry/cat/:catId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
   { path: 'ministry/client/:clientId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },

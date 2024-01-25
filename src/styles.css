@@ -187,7 +187,7 @@ pagination-template .ngx-pagination li.pagination-next span, pagination-template
 pagination-template .ngx-pagination li.current {
 	color: #fff;
 	border: 1px solid #022147;
-	background-color: #022147; 
+	background-color: #022147;
 	font-size: 14px;
 	font-weight: 400;
 	padding: 15px 22px!important;
@@ -296,4 +296,16 @@ pagination-template .ngx-pagination li.pagination-previous span{
     top: -3px!important;
     border: 0px solid #bf0a30;
     background-color: #bf0a30!important;
+}
+
+.validInput {
+  /* border-color: green; */
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% white;
+  background-size: 25px;
+}
+
+.invalidInput {
+  border-color: red;
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% white;
+  background-size: 25px;
 }

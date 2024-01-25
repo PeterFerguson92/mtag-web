@@ -14,6 +14,11 @@ export class ApiService {
     return this.http.post(url, data);
   }
 
+  createTransaction(data: any): Observable<any> {
+    const url = environment.apiUrl + '/members/transaction';
+    return this.http.post(url, data);
+  }
+
   getWeeklyEvents(): Observable<any> {
     const url = environment.apiUrl + '/activities/weekly';
     return this.http.get(url);
