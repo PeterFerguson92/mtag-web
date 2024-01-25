@@ -1,82 +1,135 @@
 <form [formGroup]="transactionForm">
   <div class="form-row sigma_donation-form">
-      <div class="col-lg-6">
-          <div class="col-12">
-            <div class="form-group">
-              <h5>Donator Details</h5>
-              <div class="row">
-                  <div class="col-lg-6">
-                      <input type="text" class="form-control" [ngClass]="getValidationClass('name')" placeholder="Name" formControlName="name">
-                  </div>
-                  <div class="col-lg-6">
-                    <input type="text" class="form-control" [ngClass]="getValidationClass('surname')" placeholder="Surname" formControlName="surname">
-                  </div>
-              </div>
-              <br>
-              <div class="row">
-                <div class="col-lg-6">
-                    <input type="text" class="form-control" [ngClass]="getValidationClass('postcode')" placeholder="Postcode" formControlName="postcode">
-                </div>
-                <div class="col-lg-6">
-                  <input type="text" class="form-control" [ngClass]="getValidationClass('houseNumber')" placeholder="House Number" formControlName="houseNumber">
-                </div>
-              </div>
-              <br>
-              <div class="row">
-                <h5>Type</h5>
-                <div class="col-lg-12">
-                  <select class="form-control" formControlName="type">
-                    <option *ngFor="let item of types">{{ item }}</option>
-                  </select>
-                </div>
-              </div>
+    <div class="col-lg-6">
+      <div class="col-12">
+        <div class="form-group">
+          <h5>Donator Details</h5>
+          <div class="row">
+            <div class="col-lg-6">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="getValidationClass('name')"
+                placeholder="Name"
+                formControlName="name"
+              />
+            </div>
+            <div class="col-lg-6">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="getValidationClass('surname')"
+                placeholder="Surname"
+                formControlName="surname"
+              />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-lg-6">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="getValidationClass('postcode')"
+                placeholder="Postcode"
+                formControlName="postcode"
+              />
+            </div>
+            <div class="col-lg-6">
+              <input
+                type="text"
+                class="form-control"
+                [ngClass]="getValidationClass('houseNumber')"
+                placeholder="House Number"
+                formControlName="houseNumber"
+              />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <h5>Type</h5>
+            <div class="col-lg-12">
+              <select class="form-control" formControlName="type">
+                <option *ngFor="let item of types">{{ item }}</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
-          <div class="col-12">
-            <div class="form-group mb-5">
-              <h5>Donation Amount</h5>
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <button class="sigma_btn-custom shadow-none btn-sm" type="button">£</button>
-                  </div>
-                  <input type="number" class="form-control ms-0" placeholder="$100" [ngClass]="getValidationClass('amount')" formControlName="amount">
-              </div>
-              <ul class="sigma_select-amount">
-                  <li *ngFor="let item of suggestedAmountList" (click)="selectAmount(item)">£{{item}}</li>
-                  <!-- <li>$25.00</li>
+    </div>
+    <div class="col-lg-6">
+      <div class="col-12">
+        <div class="form-group mb-5">
+          <h5>Donation Amount</h5>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button class="sigma_btn-custom shadow-none btn-sm" type="button">
+                £
+              </button>
+            </div>
+            <input
+              type="number"
+              class="form-control ms-0"
+              placeholder="$100"
+              [ngClass]="getValidationClass('amount')"
+              formControlName="amount"
+            />
+          </div>
+          <ul class="sigma_select-amount">
+            <li
+              *ngFor="let item of suggestedAmountList"
+              (click)="selectAmount(item)"
+            >
+              £{{ item }}
+            </li>
+            <!-- <li>$25.00</li>
                   <li>$45.00</li>
                   <li class="active">$100.00</li>
                   <li>$500.00</li> -->
-              </ul>
-            </div>
-          </div>
-      </div>
-      <div class="col-12">
-          <div class="form-group">
-              <h5>Message</h5>
-              <textarea formControlName="message" class="form-control" placeholder="Enter Message" rows="6" ></textarea>
-          </div>
-      </div>
-      <div *ngIf="showOkMessage" class="contact-message w-100">
-        <div class="contact-success w-100 mt-3">
-          <ngb-alert type="success" class="mb-0 w-100" [dismissible]="false">
-            <strong>Success!</strong> Transaction has been successfully
-            submitted.
-          </ngb-alert>
+          </ul>
         </div>
       </div>
-      <div *ngIf="showErrorMessage" class="contact-message w-100">
-        <div class="contact-success w-100 mt-3">
-          <ngb-alert type="danger" class="mb-0 w-100" [dismissible]="false">
-            <strong>Failed!</strong> Error Sending Transaction.
-          </ngb-alert>
-        </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <h5>Message</h5>
+        <textarea
+          formControlName="message"
+          class="form-control"
+          placeholder="Enter Message"
+          rows="6"
+        ></textarea>
       </div>
-      <div class="col-lg-12 text-center">
-          <button type="submit" class="sigma_btn-custom" name="button" (click)="onSubmit()"
-          [disabled]="isSubmitDisabled()"> Donate Now </button>
+    </div>
+    <div *ngIf="showOkMessage" class="contact-message w-100">
+      <div class="contact-success w-100 mt-3">
+        <ngb-alert type="success" class="mb-0 w-100" [dismissible]="false">
+          <strong>Success!</strong> Transaction has been successfully submitted.
+        </ngb-alert>
       </div>
+    </div>
+    <div *ngIf="showErrorMessage" class="contact-message w-100">
+      <div class="contact-success w-100 mt-3">
+        <ngb-alert type="danger" class="mb-0 w-100" [dismissible]="false">
+          <strong>Failed!</strong> Error Sending Transaction.
+        </ngb-alert>
+      </div>
+    </div>
+    <br>
+    <div class="col-lg-12 text-center">
+      <div *ngIf="showSpinner">
+        <div class="spinner-border"></div>
+      </div>
+      <br>
+      <button *ngIf="!showSpinner"
+        type="submit"
+        class="sigma_btn-custom"
+        name="button"
+        (click)="onSubmit()"
+        [disabled]="isSubmitDisabled()"
+      >
+        Donate Now
+      </button>
+    </div>
   </div>
 </form>
