@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreloaderComponent } from './preloader/preloader.component';
-import { EventsWeeklyContentComponent } from './components/pages/events-weekly/events-weekly-content/events-weekly-content.component';
 
 @NgModule({
   declarations: [

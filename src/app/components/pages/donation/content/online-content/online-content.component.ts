@@ -20,7 +20,7 @@ export class OnlineContentComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
   ) {
     this.transactionForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -29,6 +29,9 @@ export class OnlineContentComponent implements OnInit {
       houseNumber: ['', [Validators.required]],
       type: [this.types[0], [Validators.required]],
       amount: ['', [Validators.required]],
+      cvc: ['', [Validators.required]],
+      expiry: ['', [Validators.required]],
+      cardNumber: ['', [Validators.required]],
       message: [''],
     });
   }
@@ -40,7 +43,7 @@ export class OnlineContentComponent implements OnInit {
   }
 
   isSubmitDisabled(): any {
-    return !this.transactionForm.valid;
+    //return !this.transactionForm.valid;
   }
 
   selectAmount(amount: string): void {
@@ -64,14 +67,16 @@ export class OnlineContentComponent implements OnInit {
 
   onSubmit(): void {
     const info: any = { source: 'WEBSITE', type: 'OFFERING' };
-    Object.keys(this.transactionForm.controls).forEach((control: string) => {
-      if (control === 'amount') {
-        info[control] = parseFloat(this.getFormControl(control).value);
-      } else {
-        info[control] = this.getFormControl(control).value.trim();
-      }
-    });
-    this.process(info);
+    // Object.keys(this.transactionForm.controls).forEach((control: string) => {
+    //   if (control === 'amount') {
+    //     info[control] = parseFloat(this.getFormControl(control).value);
+    //   } else {
+    //     info[control] = this.getFormControl(control).value.trim();
+    //   }
+    // });
+    // this.process(info);
+
+    this.pay();
     return info;
   }
 
@@ -110,5 +115,23 @@ export class OnlineContentComponent implements OnInit {
     Object.keys(this.transactionForm.controls).forEach((key) => {
       this.transactionForm.controls[key].reset();
     });
+  }
+  pay(): void {
+    const data = {
+      amount: this.getFormControl('amount').value,
+      type: this.getFormControl('type').value,
+    };
+    this.apiService.createPaymentIntent(data).subscribe(
+      async (result: any) => {
+        console.log(result);
+        // var elements = this.stripe.elements();
+        // var card = elements.create('card');
+      },
+      (error: any) => {
+        console.log(error);
+        this.showErrorMessage = true;
+        this.clearNotification(false);
+      }
+    );
   }
 }
