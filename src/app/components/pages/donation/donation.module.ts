@@ -10,6 +10,7 @@ import { DonationComponent } from './donation.component';
 import { ContentComponent } from './content/content.component';
 import { ServiceBlockComponent } from './service-block/service-block.component';
 import { OnlineContentComponent } from './content/online-content/online-content.component';
+import { OfflineContentComponent } from './content/offline-content/offline-content.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { OnlineContentComponent } from './content/online-content/online-content.
     DonationComponent,
     ContentComponent,
     ServiceBlockComponent,
-    OnlineContentComponent
+    OnlineContentComponent,
+    OfflineContentComponent
   ],
   imports: [
     CommonModule,

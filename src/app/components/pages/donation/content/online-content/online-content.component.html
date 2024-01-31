@@ -45,8 +45,6 @@
               />
             </div>
           </div>
-          <br />
-          <br />
           <div class="row" style="margin-top: 62px;">
             <h5>Type</h5>
             <div class="col-lg-12">
@@ -99,12 +97,14 @@
             ></ngx-stripe-card-number>
           </div>
 
+          <p>Card Expiry Date</p>
           <div fxLayout="row" fxLayoutGap="10px">
             <div class="w-full stripe-element">
               <ngx-stripe-card-expiry
                 [options]="cardOptions"
               ></ngx-stripe-card-expiry>
             </div>
+            <p>Card CVC</p>
             <div class="w-full stripe-element">
               <ngx-stripe-card-cvc
                 [options]="cardOptions"

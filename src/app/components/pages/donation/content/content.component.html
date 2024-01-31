@@ -4,13 +4,20 @@
     <div class="section-title text-center">
       <p class="subtitle">DONATE TO HELP</p>
       <h4 class="title">Make a donation to help us</h4>
+      <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center ms-4">
+          <input type="radio" id="radio2" name="radio" value="Offline Payment" (change)="paymentType = 'offline'" [checked]="true">
+          <label for="radio2" class="mb-0">Bank Transfer</label>
+      </div>
+        <div class="d-flex align-items-center ms-4">
+            <input type="radio" id="radio" name="radio" value="Online Payment" (change)="paymentType = 'online'" >
+            <label for="radio" class="mb-0">Online Payment</label>
+        </div>
+      </div>
     </div>
-    <app-online-content></app-online-content>
+    <app-offline-content *ngIf="bankAccountDetails && !isOnlinePayment()" [bankDetails]="bankAccountDetails"></app-offline-content>
     <br>
-    <div class="section-title text-center">
-      <p class="subtitle">DONATE TO HELP</p>
-      <h4 class="title">Make a donation to help us</h4>
-    </div>
+    <app-online-content *ngIf="isOnlinePayment()"></app-online-content>
   </div>
 </div>
 <!-- Form End -->
