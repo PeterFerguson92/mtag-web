@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreloaderComponent } from './preloader/preloader.component';
+import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PreloaderComponent } from './preloader/preloader.component';
   ],
   imports: [
     BrowserModule,
+    NgxStripeModule.forRoot(''),
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,

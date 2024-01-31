@@ -89,9 +89,29 @@
                   <li>$500.00</li> -->
           </ul>
         </div>
-        <h5>Payment Details</h5>
+        <div *ngIf="isStripeLoaded"  class="stripe-card" ngxStripeCardGroup [elementsOptions]="elementsOptions">
+          <h4>Enter payment details</h4>
 
+          <p>Card number</p>
+          <div class="stripe-element">
+            <ngx-stripe-card-number
+              [options]="cardOptions"
+            ></ngx-stripe-card-number>
+          </div>
 
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div class="w-full stripe-element">
+              <ngx-stripe-card-expiry
+                [options]="cardOptions"
+              ></ngx-stripe-card-expiry>
+            </div>
+            <div class="w-full stripe-element">
+              <ngx-stripe-card-cvc
+                [options]="cardOptions"
+              ></ngx-stripe-card-cvc>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-12">
@@ -129,7 +149,7 @@
         type="submit"
         class="sigma_btn-custom"
         name="button"
-        (click)="onSubmit()"
+        (click)="pay()"
         [disabled]="isSubmitDisabled()"
       >
         Donate Now
