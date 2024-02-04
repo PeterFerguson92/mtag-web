@@ -1,6 +1,7 @@
 {
   "projects": {
     "prod": "mtag-web",
+    "qa": "mtag-qa",
     "default": "mtag-web"
   }
 }
