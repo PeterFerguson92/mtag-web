@@ -23,7 +23,7 @@ export class EventDetailsComponent implements OnInit {
     const id = snapshot.paramMap.get('id');
     if (id) {
       if (this.isProgram) {
-        this.apiService.getProgramDetail(id).subscribe(
+        this.apiService.getResource('/activities/program/' + id).subscribe(
           (data) => {
             if (data.status === 'success') {
               this.event = data.result;
@@ -34,7 +34,7 @@ export class EventDetailsComponent implements OnInit {
           }
         );
       } else {
-        this.apiService.getEventDetail(id).subscribe(
+        this.apiService.getResource('/activities/event/' + id).subscribe(
           (data) => {
             if (data.status === 'success') {
               this.event = data.result;

@@ -69,7 +69,7 @@ export class OnlineContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.getResource('/members/stripe-key').subscribe(
+    this.apiService.getResource('/finance/stripe-key').subscribe(
       (data: any) => {
         if (data.status === 'success')
         {
@@ -93,7 +93,7 @@ export class OnlineContentComponent implements OnInit {
   }
 
   isSubmitDisabled(): any {
-    //return !this.transactionForm.valid;
+    // return !this.transactionForm.valid;
   }
 
   selectAmount(amount: string): void {
@@ -156,8 +156,8 @@ export class OnlineContentComponent implements OnInit {
         info[control] = this.getFormControl(control).value.trim();
       }
     });
-
-    this.apiService.createTransaction(info).subscribe(
+    const url = '/finance/transaction';
+    this.apiService.createResource(url, info).subscribe(
       (data: any) => {
         this.showOkMessage = true;
         this.clearFields();

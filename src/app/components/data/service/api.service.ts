@@ -11,14 +11,8 @@ import {
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  createMember(data: any): Observable<any> {
-    const url = environment.apiUrl + '/members/';
-    return this.http.post(url, data);
-  }
-
-  createTransaction(data: any): Observable<any> {
-    const url = environment.apiUrl + '/members/transaction';
-    return this.http.post(url, data);
+  createResource(url: string, data: any): Observable<any> {
+    return this.http.post(environment.apiUrl + url, data);
   }
 
   createPaymentIntent(data: any): Observable<PaymentIntent> {
@@ -27,36 +21,6 @@ export class ApiService {
       url,
       data
     );
-  }
-
-  getWeeklyEvents(): Observable<any> {
-    const url = environment.apiUrl + '/activities/weekly';
-    return this.http.get(url);
-  }
-
-  getEventDetail(id: string): Observable<any> {
-    const url = environment.apiUrl + '/activities/event/' + id;
-    return this.http.get(url);
-  }
-
-  getActivePrograms(): Observable<any> {
-    const url = environment.apiUrl + '/activities/program/active';
-    return this.http.get(url);
-  }
-
-  getProgramDetail(id: string): Observable<any> {
-    const url = environment.apiUrl + '/activities/program/' + id;
-    return this.http.get(url);
-  }
-
-  getMinistry(): Observable<any> {
-    const url = environment.apiUrl + '/ministries/';
-    return this.http.get(url);
-  }
-
-  getMinistryDetail(id: string): Observable<any> {
-    const url = environment.apiUrl + '/ministries/detail/' + id;
-    return this.http.get(url);
   }
 
   getResource(resourceUrl: string): Observable<any> {

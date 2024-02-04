@@ -14,7 +14,7 @@ export class EventsWeeklyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.apiService.getWeeklyEvents().subscribe(
+    this.apiService.getResource('/activities/weekly').subscribe(
       (data: any) => {
         if (data.status === 'success') {
           this.events = data.result[0].events;

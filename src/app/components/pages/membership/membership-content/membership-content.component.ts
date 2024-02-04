@@ -52,7 +52,8 @@ export class MembershipContentComponent implements OnInit {
   }
 
   process(info: any): void {
-    this.apiService.createMember(info).subscribe(
+    const url = '/servicemanagement/member';
+    this.apiService.createResource(url, info).subscribe(
       (data: any) => {
         this.showOkMessage = true;
         this.clearFields();

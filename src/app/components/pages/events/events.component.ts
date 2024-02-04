@@ -11,9 +11,8 @@ export class EventsComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getActivePrograms().subscribe(
+    this.apiService.getResource('/activities/program/active').subscribe(
       (data: any) => {
-        console.log(data);
         if (data.status === 'success') {
           const rawEvents = data.result;
           // tslint:disable-next-line:typedef

@@ -11,7 +11,7 @@ export class MinistriesComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getMinistry().subscribe(
+    this.apiService.getResource('/ministries/').subscribe(
       (data: any) => {
         if (data.status === 'success')
         {

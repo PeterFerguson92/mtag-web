@@ -20,7 +20,7 @@ export class MinistryDetailsComponent implements OnInit {
     const id = snapshot.paramMap.get('id');
 
     if (id) {
-      this.apiService.getMinistryDetail(id).subscribe(
+      this.apiService.getResource('/ministries/detail/' + id).subscribe(
         (data) => {
           if (data.status === 'success') {
             this.ministry = data.result;

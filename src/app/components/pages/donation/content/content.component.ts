@@ -13,7 +13,7 @@ export class ContentComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getResource('/members/bank-account').subscribe(
+    this.apiService.getResource('/finance/bank-account').subscribe(
       (data: any) => {
         if (data.status === 'success' && data.result.length > 0) {
           this.bankAccountDetails = data.result[0];
