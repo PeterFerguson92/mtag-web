@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TRANSACTION_TYPES } from 'costants';
+import { MEMBERSHIP_TYPES, TRANSACTION_TYPES } from 'costants';
 import { StripeCardNumberComponent, StripeService } from 'ngx-stripe';
 import { ApiService } from 'src/app/components/data/service/api.service';
 import {
@@ -22,7 +22,9 @@ export class OnlineContentComponent implements OnInit {
   showOkMessage = false;
   showErrorMessage = false;
   showSpinner = false;
+  showSpecificType = false;
   types = TRANSACTION_TYPES;
+  membershipTypes = MEMBERSHIP_TYPES;
   suggestedAmountList = ['10', '20', '50', '100', '500'];
   transactionForm: FormGroup;
   @ViewChild(StripeCardNumberComponent) card!: StripeCardNumberComponent;
@@ -59,7 +61,9 @@ export class OnlineContentComponent implements OnInit {
       surname: ['', Validators.required],
       postcode: ['', [Validators.required]],
       houseNumber: ['', [Validators.required]],
+      memberType: [this.membershipTypes[0], [Validators.required]],
       type: [this.types[0], [Validators.required]],
+      specificTransactionType: ['', Validators.required],
       amount: ['', [Validators.required]],
       cvc: ['', [Validators.required]],
       expiry: ['', [Validators.required]],
@@ -82,6 +86,10 @@ export class OnlineContentComponent implements OnInit {
       }
     );
   }
+
+  onSelectionChange(value: any): void {
+    this.showSpecificType = value === 'OTHER';
+}
 
   // tslint:disable-next-line:typedef
   onChange(ev: StripeCardElementChangeEvent) {

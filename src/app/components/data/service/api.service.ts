@@ -16,7 +16,7 @@ export class ApiService {
   }
 
   createPaymentIntent(data: any): Observable<PaymentIntent> {
-    const url = `${environment.apiUrl}/members/create-payment-intent`;
+    const url = `${environment.apiUrl}/finance/create-payment-intent`;
     return this.http.post<PaymentIntent>(
       url,
       data
