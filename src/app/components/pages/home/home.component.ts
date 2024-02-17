@@ -20,27 +20,40 @@ export class HomeComponent implements OnInit {
   bannerBackgroundImage = '';
   leadershipBoardBackgroundImage = '';
 
-
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.apiService.getResource('/homepage/').subscribe(
       (data: any) => {
         if (data.status === 'success') {
-          console.log(data);
-          this.banners = data.result[0].banners;
-          this.blocks = data.result[0].blocks;
-          this.aboutUs = data.result[0].aboutUs;
-          this.details = data.result[0].details;
-          this.videos = data.result[0].media.videos;
-          this.videoHeader = data.result[0].media.videos_header;
-          this.videoTitle = data.result[0].media.videos_title;
-          this.leaders = data.result[0].leadershipBoard.leaders;
-          this.leadershipHeader = data.result[0].leadershipBoard.leaders;
-          this.leadershipTitle = data.result[0].leadershipBoard.section_title;
-          this.leadershipHeader = data.result[0].leadershipBoard.header;
-          this.bannerBackgroundImage = data.result[0].banner_background_image;
-          this.leadershipBoardBackgroundImage = data.result[0].leadership_board_background_image;
+          const result = data.result[0];
+          if (result) {
+            this.banners = result.banners;
+            this.blocks = result.blocks;
+            this.aboutUs = result.aboutUs;
+            this.details = result.details;
+            this.videos = result.media
+              ? result.media.videos
+              : null;
+            this.videoHeader = result.media
+              ? result.media.videos_header
+              : null;
+            this.videoTitle = result.media
+              ? result.media.videos_title
+              : null;
+            this.leaders = result.leadershipBoard
+              ? result.leadershipBoard.leaders
+              : null;
+            this.leadershipTitle = result.leadershipBoard
+              ? result.leadershipBoard.section_title
+              : null;
+            this.leadershipHeader = result.leadershipBoard
+              ? result.leadershipBoard.header
+              : null;
+            this.bannerBackgroundImage = result.banner_background_image;
+            this.leadershipBoardBackgroundImage =
+              result.leadership_board_background_image;
+          }
         }
       },
       (error: any) => {

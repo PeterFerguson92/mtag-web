@@ -21,7 +21,7 @@ const routes: Routes = [
   // { path: 'blog-grid', loadChildren: () => import('./components/pages/blog-grid/blog-grid.module').then(m => m.BlogGridModule), data: { breadcrumb: 'Blog Grid' } },
   // { path: 'blog-details/:id', loadChildren: () => import('./components/pages/blog-details/blog-details.module').then(m => m.BlogDetailsModule), data: { breadcrumb: 'Blog Details' } },
   // // Pages
-  // { path: 'broadcast', loadChildren: () => import('./components/pages/broadcast/broadcast.module').then(m => m.BroadcastModule), data: { breadcrumb: 'Broadcast' } },
+  { path: 'broadcast', loadChildren: () => import('./components/pages/broadcast/broadcast.module').then(m => m.BroadcastModule), data: { breadcrumb: 'Broadcast' } },
   // Volunteers
   { path: 'leaders', loadChildren: () => import('./components/pages/volunteers/volunteers.module').then(m => m.VolunteersModule), data: { breadcrumb: 'Leaders' } },
   { path: 'leader-details/:id', loadChildren: () => import('./components/pages/volunteer-details/volunteer-details.module').then(m => m.VolunteerDetailsModule), data: { breadcrumb: 'Details' } },

@@ -1,10 +1,10 @@
 <app-header [details]="details"></app-header>
 <app-banner [bannerBackgroundImage]="bannerBackgroundImage" [banners]="banners"></app-banner>
-<app-block-box [blocks]="blocks"></app-block-box>
+<app-block-box  *ngIf="blocks" [blocks]="blocks"></app-block-box>
 <app-about-text [aboutUs]="aboutUs"></app-about-text>
-<app-page-cta [details]="details"></app-page-cta>
+<!-- <app-page-cta [details]="details"></app-page-cta> -->
 <!-- <app-donation></app-donation> -->
-<app-broadcast [videos]="videos" [header]="videoHeader" [title]="videoTitle"></app-broadcast>
+<app-broadcast *ngIf="videos" [videos]="videos" [header]="videoHeader" [title]="videoTitle"></app-broadcast>
 <!-- <app-ministry></app-ministry> -->
 <app-volunteers [leadershipBoardBackgroundImage]="leadershipBoardBackgroundImage" [leaders]="leaders" [header]="leadershipHeader" [title]="leadershipTitle"></app-volunteers>
 <!-- <app-testimonials></app-testimonials> -->
