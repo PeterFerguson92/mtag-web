@@ -20,31 +20,5 @@
                 "link":"/events"
             }
         ]
-    },
-    {
-        "id":2,
-        "title":"Others",
-        "items":[
-            {
-                "title":"Services",
-                "link":"/services"
-            },
-            {
-                "title":"Our Shop",
-                "link":"/shop"
-            },
-            {
-                "title":"Cart",
-                "link":"/cart"
-            },
-            {
-                "title":"Blog",
-                "link":"/blog-grid"
-            },
-            {
-                "title":"Contact",
-                "link":"/contact"
-            }
-        ]
     }
 ]
