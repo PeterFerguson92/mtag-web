@@ -19,31 +19,35 @@ export class EventDetailsComponent implements OnInit {
   ngOnInit(): void {
     const snapshot = this.activatedRoute.snapshot;
     // tslint:disable-next-line:triple-equals
-    this.isProgram = snapshot.data.breadcrumb == 'Program Details';
     const id = snapshot.paramMap.get('id');
     if (id) {
-      if (this.isProgram) {
-        this.apiService.getResource('/activities/program/' + id).subscribe(
-          (data) => {
-            if (data.status === 'success') {
-              this.event = data.result;
-            }
-          },
-          (error) => {
-            console.log(error);
+      const url = this.getEventsFromType(snapshot.data.breadcrumb, id);
+      this.apiService.getResource(url).subscribe(
+        (data) => {
+          if (data.status === 'success') {
+            this.event = data.result;
           }
-        );
-      } else {
-        this.apiService.getResource('/activities/event/' + id).subscribe(
-          (data) => {
-            if (data.status === 'success') {
-              this.event = data.result;
-            }
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  }
+
+  getEventsFromType(type: string, id: any): string {
+    switch (type) {
+      case 'Event Details': {
+        return '/activities/event/' + id;
+      }
+      case 'Program Details': {
+        return '/activities/event/' + id;
+      }
+      case 'Social Details': {
+        return '/activities/socialevent/' + id;
+      }
+      default: {
+        return '/activities/event/' + id;
       }
     }
   }

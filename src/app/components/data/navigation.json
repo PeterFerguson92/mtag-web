@@ -40,6 +40,11 @@
         "id": 3.3,
         "link": "/weekly-events",
         "linkText": "Weekly Events"
+      },
+      {
+        "id": 3.4,
+        "link": "/social-events",
+        "linkText": "Social Events"
       }
     ]
   },

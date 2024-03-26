@@ -12,10 +12,7 @@ import { PreloaderComponent } from './preloader/preloader.component';
 import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PreloaderComponent
-  ],
+  declarations: [AppComponent, PreloaderComponent],
   imports: [
     BrowserModule,
     NgxStripeModule.forRoot(''),
@@ -28,6 +25,6 @@ import { NgxStripeModule } from 'ngx-stripe';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

@@ -53,10 +53,14 @@
               </select>
             </div>
           </div>
-          <div class="row" style="margin-top: 62px;">
+          <div class="row" style="margin-top: 62px">
             <h5>Type</h5>
             <div class="col-lg-6">
-              <select class="form-control" (change)="onSelectionChange($event.target.value)" formControlName="type">
+              <select
+                class="form-control"
+                (change)="onSelectionChange($event.target.value)"
+                formControlName="type"
+              >
                 <option *ngFor="let item of types">{{ item }}</option>
               </select>
             </div>
@@ -104,7 +108,12 @@
                   <li>$500.00</li> -->
           </ul>
         </div>
-        <div *ngIf="isStripeLoaded"  class="stripe-card" ngxStripeCardGroup [elementsOptions]="elementsOptions">
+        <div
+          *ngIf="isStripeLoaded"
+          class="stripe-card"
+          ngxStripeCardGroup
+          [elementsOptions]="elementsOptions"
+        >
           <h4>Enter payment details</h4>
 
           <p>Card number</p>
@@ -156,13 +165,14 @@
         </ngb-alert>
       </div>
     </div>
-    <br>
+    <br />
     <div class="col-lg-12 text-center">
       <div *ngIf="showSpinner">
         <div class="spinner-border"></div>
       </div>
-      <br>
-      <button *ngIf="!showSpinner"
+      <br />
+      <button
+        *ngIf="!showSpinner"
         type="submit"
         class="sigma_btn-custom"
         name="button"

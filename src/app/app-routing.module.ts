@@ -83,6 +83,14 @@ const routes: Routes = [
     data: { breadcrumb: 'Weekly Events' },
   },
   {
+    path: 'social-events',
+    loadChildren: () =>
+      import('./components/pages/events-social/events-social.module').then(
+        (m) => m.EventsSocialModule
+      ),
+    data: { breadcrumb: 'Social Events' },
+  },
+  {
     path: 'event-details/:id',
     loadChildren: () =>
       import('./components/pages/event-details/event-details.module').then(
@@ -97,6 +105,14 @@ const routes: Routes = [
         (m) => m.EventDetailsModule
       ),
     data: { breadcrumb: 'Program Details' },
+  },
+  {
+    path: 'social-details/:id',
+    loadChildren: () =>
+      import('./components/pages/event-details/event-details.module').then(
+        (m) => m.EventDetailsModule
+      ),
+    data: { breadcrumb: 'Social Details' },
   },
   {
     path: 'membership',
