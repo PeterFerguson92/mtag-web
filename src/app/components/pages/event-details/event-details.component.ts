@@ -9,7 +9,8 @@ import { ApiService } from '../../data/service/api.service';
 })
 export class EventDetailsComponent implements OnInit {
   event: any;
-  isProgram: any;
+  eventType: any;
+  isGalleryVisibile: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -38,12 +39,18 @@ export class EventDetailsComponent implements OnInit {
   getEventsFromType(type: string, id: any): string {
     switch (type) {
       case 'Event Details': {
+        this.isGalleryVisibile = false;
+        this.eventType = 'events';
         return '/activities/event/' + id;
       }
       case 'Program Details': {
+        this.eventType = 'program';
+        this.isGalleryVisibile = false;
         return '/activities/event/' + id;
       }
       case 'Social Details': {
+        this.eventType = 'social-events';
+        this.isGalleryVisibile = true;
         return '/activities/socialevent/' + id;
       }
       default: {

@@ -30,6 +30,9 @@
             </ul>
           </div>
         </div>
+        <app-gallery *ngIf="isGalleryVisibile" [img1]="event.gallery_image_path_1"
+        [img2]="event.gallery_image_path_2"></app-gallery>
+
       </div>
     </div>
   </div>

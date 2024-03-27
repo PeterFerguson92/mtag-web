@@ -7,12 +7,14 @@ import { EventDetailsRoutingModule } from './event-details-routing.module';
 import { EventDetailsComponent } from './event-details.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ContentComponent } from './content/content.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
   declarations: [
     EventDetailsComponent,
-    ContentComponent
+    ContentComponent,
+    GalleryComponent
   ],
   imports: [
     CommonModule,

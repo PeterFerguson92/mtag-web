@@ -8,7 +8,8 @@ import { CommonService } from 'src/app/components/data/service/common.service';
 })
 export class ContentComponent {
   @Input() event: any;
-  @Input() isProgram = false;
+  @Input() eventType: any;
+  @Input() isGalleryVisibile: any;
 
   constructor(private commonService: CommonService) {}
 
@@ -17,7 +18,7 @@ export class ContentComponent {
   }
 
   getDateInitials(event: any): any {
-    if (this.isProgram) {
+    if (this.eventType === 'programs' || this.eventType === 'social-events') {
       if (event.start_date === event.end_date) {
         return this.commonService.getFormattedDate(event.start_date);
       } else {
