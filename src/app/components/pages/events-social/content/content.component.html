@@ -6,19 +6,19 @@
               <article class="sigma_post sigma_post-list event-list"
                   *ngFor="let item of events | paginate: { itemsPerPage: 4, currentPage: page }">
                   <div class="sigma_post-thumb">
-                      <a routerLink="/program-details/{{item.id}}">
+                      <a routerLink="/social-details/{{item.id}}">
                           <img [src]="item.cover_image_path" [alt]="item.title">
                       </a>
                       <div class="event-date-wrapper" [innerHtml]="getDateInitials(item.start_date)"></div>
                   </div>
                   <div class="sigma_post-body">
-                      <h5> <a routerLink="/program-details/{{item.id}}">{{item.title}}</a> </h5>
+                      <h5> <a routerLink="/social-details/{{item.id}}">{{item.title}}</a> </h5>
                       <p>{{item.short_description}}</p>
                       <br>
                       <div class="sigma_post-meta">
-                          <a routerLink="/program-details/{{item.id}}"> <i class="far fa-clock"></i>
+                          <a routerLink="/social-details/{{item.id}}"> <i class="far fa-clock"></i>
                             {{ getTimeDetails(item.start_time, item.end_time) }}</a>
-                          <a routerLink="/program-details/{{item.id}}"> <i class="far fa-map-marker-alt"></i>
+                          <a routerLink="/social-details/{{item.id}}"> <i class="far fa-map-marker-alt"></i>
                               {{item.location}}</a>
                       </div>
                       <div class="section-button d-flex align-items-center">

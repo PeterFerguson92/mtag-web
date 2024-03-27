@@ -20,6 +20,7 @@ export class ContentComponent implements OnInit {
   }
 
   getDateInitials(rawDate: string): string {
+    console.log(rawDate)
     const formatted = this.commonService.getFormattedDate(rawDate);
     const names = formatted.split(' ');
     let initials = '<span>' + names[0].substring(0, 2) + '</span>';

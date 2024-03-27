@@ -18,7 +18,7 @@ export class ContentComponent {
   }
 
   getDateInitials(event: any): any {
-    if (this.eventType === 'programs' || this.eventType === 'social-events') {
+    if (this.eventType === 'programs') {
       if (event.start_date === event.end_date) {
         return this.commonService.getFormattedDate(event.start_date);
       } else {
