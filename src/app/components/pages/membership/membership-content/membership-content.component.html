@@ -4,18 +4,17 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="form-group">
-            <i class="far fa-user"></i>
             <input
               type="text"
               class="form-control dark"
               placeholder="Name"
               formControlName="name"
+              [ngClass]="getValidationClass('name')"
             />
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <i class="far fa-user"></i>
             <input
               type="text"
               class="form-control dark"
@@ -26,29 +25,40 @@
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <i class="far fa-user"></i>
             <input
               type="text"
               class="form-control dark"
               placeholder="Surname"
               formControlName="surname"
+              [ngClass]="getValidationClass('surname')"
             />
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <i class="far fa-phone"></i>
+            <input
+              type="text"
+              class="form-control dark"
+              placeholder="Email"
+              formControlName="email"
+              [ngClass]="getValidationClass('email')"
+            />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="form-group">
             <input
               type="text"
               class="form-control dark"
               placeholder="Phone"
               formControlName="phone"
+              [ngClass]="getValidationClass('phone')"
             />
           </div>
         </div>
         <div class="col-lg-4">
           <div class="form-group">
-            <select class="form-control" formControlName="sex">
+            <select class="form-control" formControlName="sex" >
               <option *ngFor="let item of memberSex">{{ item }}</option>
             </select>
           </div>
@@ -84,7 +94,7 @@
       <div *ngIf="showErrorMessage" class="contact-message w-100">
         <div class="contact-success w-100 mt-3">
           <ngb-alert type="danger" class="mb-0 w-100" [dismissible]="false">
-            <strong>Failed!</strong> Error Sending Information.
+            <strong>Failed!</strong> Please check the information submitted.
           </ngb-alert>
         </div>
       </div>

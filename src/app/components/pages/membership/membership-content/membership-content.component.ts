@@ -25,6 +25,7 @@ export class MembershipContentComponent implements OnInit {
       name: ['', Validators.required],
       middleName: [''],
       surname: ['', Validators.required],
+      email: ['', Validators.email],
       phone: ['', [Validators.required]],
       sex: [this.memberSex[0], [Validators.required]],
       memberType: [this.membershipTypes[0], [Validators.required]],
@@ -79,6 +80,20 @@ export class MembershipContentComponent implements OnInit {
       }.bind(this),
       3000
     );
+  }
+
+  getValidationClass(fControlName: any): any {
+    const fControl = this.getFormControl(fControlName);
+    if (fControl.dirty && fControl.valid) {
+      if ('email' === fControlName) {
+        return null;
+      }
+      return { validInput: true };
+    }
+
+    if (fControl.dirty && !fControl.valid) {
+      return { invalidInput: true };
+    }
   }
 
   clearFields(): void {
