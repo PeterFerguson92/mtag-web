@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MEMBERSHIP_TYPES, TRANSACTION_TYPES } from 'costants';
+import { MEMBERSHIP_TYPES,
+  TRANSACTION_TYPES,
+} from 'costants';
 import { StripeCardNumberComponent, StripeService } from 'ngx-stripe';
 import { ApiService } from 'src/app/components/data/service/api.service';
 import {
@@ -17,12 +19,12 @@ import { switchMap } from 'rxjs/operators';
   templateUrl: './online-content.component.html',
   styleUrls: ['./online-content.component.css'],
 })
-
 export class OnlineContentComponent implements OnInit {
   showOkMessage = false;
   showErrorMessage = false;
   showSpinner = false;
   showSpecificType = false;
+  showGiftAidOccurences = false;
   types = TRANSACTION_TYPES;
   membershipTypes = MEMBERSHIP_TYPES;
   suggestedAmountList = ['10', '20', '50', '100', '500'];
@@ -62,6 +64,8 @@ export class OnlineContentComponent implements OnInit {
       postcode: ['', [Validators.required]],
       houseNumber: ['', [Validators.required]],
       memberType: [this.membershipTypes[0], [Validators.required]],
+      optedInGiftAidDonation: [false, Validators.required],
+      giftAidDonationOccurence: ['', Validators.required],
       type: [this.types[0], [Validators.required]],
       specificTransactionType: ['', Validators.required],
       amount: ['', [Validators.required]],
@@ -75,8 +79,7 @@ export class OnlineContentComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getResource('/finance/stripe-key').subscribe(
       (data: any) => {
-        if (data.status === 'success')
-        {
+        if (data.status === 'success') {
           this.stripeService.changeKey(data.key);
           this.isStripeLoaded = true;
         }
@@ -89,7 +92,7 @@ export class OnlineContentComponent implements OnInit {
 
   onSelectionChange(value: any): void {
     this.showSpecificType = value === 'OTHER';
-}
+  }
 
   // tslint:disable-next-line:typedef
   onChange(ev: StripeCardElementChangeEvent) {
@@ -121,6 +124,11 @@ export class OnlineContentComponent implements OnInit {
     if (fControl.dirty && !fControl.valid) {
       return { invalidInput: true };
     }
+  }
+
+  onSelectionCheckboxChange(fControlName: string): void {
+    const fControl = this.getFormControl(fControlName);
+    this.showGiftAidOccurences = fControl.value;
   }
 
   pay(): void {
@@ -161,7 +169,14 @@ export class OnlineContentComponent implements OnInit {
       if (control === 'amount') {
         info[control] = parseFloat(this.getFormControl(control).value);
       } else {
-        info[control] = this.getFormControl(control).value.trim();
+        if (
+          control === 'optedInGiftAidDonation' ||
+          control === 'giftAidDonationOccurence'
+        ) {
+          info[control] = this.getFormControl(control).value;
+        } else {
+          info[control] = this.getFormControl(control).value.trim();
+        }
       }
     });
     const url = '/finance/transaction';
