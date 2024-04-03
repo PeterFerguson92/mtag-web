@@ -27,6 +27,7 @@ export class OnlineContentComponent implements OnInit {
   showGiftAidOccurences = false;
   types = TRANSACTION_TYPES;
   membershipTypes = MEMBERSHIP_TYPES;
+  selectedOccurences = '';
   suggestedAmountList = ['10', '20', '50', '100', '500'];
   transactionForm: FormGroup;
   @ViewChild(StripeCardNumberComponent) card!: StripeCardNumberComponent;
@@ -131,6 +132,17 @@ export class OnlineContentComponent implements OnInit {
     this.showGiftAidOccurences = fControl.value;
   }
 
+  checkCheckBoxvalue(event: any, occurence: string): void{
+    if (event.target.checked)
+    {
+      this.selectedOccurences = this.selectedOccurences.concat(' - ' + occurence);
+    } else
+    {
+      this.selectedOccurences = this.selectedOccurences.replace(' - ' + occurence, '');
+    }
+    this.getFormControl('giftAidDonationOccurence').value = this.selectedOccurences;
+  }
+
   pay(): void {
     this.showSpinner = true;
     const data = {
@@ -170,8 +182,7 @@ export class OnlineContentComponent implements OnInit {
         info[control] = parseFloat(this.getFormControl(control).value);
       } else {
         if (
-          control === 'optedInGiftAidDonation' ||
-          control === 'giftAidDonationOccurence'
+          control === 'optedInGiftAidDonation'
         ) {
           info[control] = this.getFormControl(control).value;
         } else {
