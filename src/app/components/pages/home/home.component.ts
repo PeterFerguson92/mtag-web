@@ -11,9 +11,9 @@ export class HomeComponent implements OnInit {
   blocks: any = [];
   aboutUs: any;
   details: any;
-  videos: any;
   videoHeader = '';
   videoTitle = '';
+  videoId = '';
   leadershipHeader = '';
   leadershipTitle = '';
   leaders: any;
@@ -27,20 +27,19 @@ export class HomeComponent implements OnInit {
       (data: any) => {
         if (data.status === 'success') {
           const result = data.result[0];
-          if (result) {
+          if (result)
+          {
             this.banners = result.banners;
             this.blocks = result.blocks;
             this.aboutUs = result.aboutUs;
             this.details = result.details;
-            this.videos = result.media
-              ? result.media.videos
-              : null;
             this.videoHeader = result.media
               ? result.media.videos_header
               : null;
             this.videoTitle = result.media
               ? result.media.videos_title
               : null;
+            this.videoId = result.media ? result.media.video_id : null;
             this.leaders = result.leadershipBoard
               ? result.leadershipBoard.leaders
               : null;

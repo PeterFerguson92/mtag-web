@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import data from '../../../data/broadcast.json';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-broadcast',
@@ -14,21 +15,20 @@ import data from '../../../data/broadcast.json';
 })
 export class BroadcastComponent implements OnInit, OnChanges {
   public broadcast = data;
-  @Input() videos: any;
+  @Input() videoId: any;
   @Input() header: any;
   @Input() title: any;
-  featuredVideo: any;
-  ntVideos = [];
-  constructor() {}
+  videoUrl: SafeResourceUrl = '';
+  constructor(private sanitizer: DomSanitizer) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.videos.currentValue)
-    {
-      const currentVideos = changes.videos.currentValue;
-      this.featuredVideo = currentVideos.filter((x: any) => x.featured)[0];
-      this.ntVideos = currentVideos.filter((x: any) => !x.featured);
+    if (changes.videoId.currentValue) {
+      this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        `https://drive.google.com/file/d/${this.videoId}/preview`
+      );
     }
   }
 

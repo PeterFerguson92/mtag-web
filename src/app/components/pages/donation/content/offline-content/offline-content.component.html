@@ -1,4 +1,4 @@
-<div class="sigma_box pb-0 m-0">
+<div *ngIf="bankDetails.account_holder_name" class="sigma_box pb-0 m-0">
   <div class="row">
       <div class="col-md-4">
           <div class="sigma_icon-block icon-block-3">
@@ -9,7 +9,7 @@
           </div>
       </div>
 
-      <div class="col-md-4">
+      <div *ngIf="bankDetails.account_number" class="col-md-4">
         <div class="sigma_icon-block icon-block-3">
             <div class="sigma_icon-block-content">
                 <h5> Account Number </h5>
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div *ngIf="bankDetails.sort_code" class="col-md-4">
       <div class="sigma_icon-block icon-block-3">
           <div class="sigma_icon-block-content">
               <h5> Sort Code </h5>
@@ -27,7 +27,7 @@
       </div>
   </div>
 
-  <div class="col-md-4">
+  <div *ngIf="bankDetails.iban" class="col-md-4">
     <div class="sigma_icon-block icon-block-3">
         <div class="sigma_icon-block-content">
             <h5> IBAN </h5>
@@ -36,7 +36,7 @@
     </div>
 </div>
 
-<div class="col-md-4">
+<div *ngIf="bankDetails.swift_bic" class="col-md-4">
   <div class="sigma_icon-block icon-block-3">
       <div class="sigma_icon-block-content">
           <h5> SWIFT BIC </h5>

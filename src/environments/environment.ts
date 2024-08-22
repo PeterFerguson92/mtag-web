@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8000/api',
+  // apiUrl: 'https://mtag-admin-production.up.railway.app/api',
   // apiUrl: 'https://mtag-admin-qa.up.railway.app/api',
+  apiUrl: 'http://localhost:8000/api'
 };
 
 /*
