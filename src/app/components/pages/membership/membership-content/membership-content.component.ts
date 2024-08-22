@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MEMBERSHIP_SEX, MEMBERSHIP_TYPES } from 'costants';
+import { DEPARTMENTS, MEMBERSHIP_SEX, MEMBERSHIP_TYPES } from 'costants';
 import { ApiService } from 'src/app/components/data/service/api.service';
 
 @Component({
@@ -13,8 +13,10 @@ export class MembershipContentComponent implements OnInit {
   addMemberForm: FormGroup;
   memberSex = MEMBERSHIP_SEX;
   membershipTypes = MEMBERSHIP_TYPES;
+  departments = DEPARTMENTS;
   showOkMessage = false;
   showErrorMessage = false;
+  showDepartments = false;
 
   constructor(
     private router: Router,
@@ -25,14 +27,19 @@ export class MembershipContentComponent implements OnInit {
       name: ['', Validators.required],
       middleName: [''],
       surname: ['', Validators.required],
+      postcode: ['', Validators.required],
+      house_number: ['', Validators.required],
+      address: ['', Validators.required],
       email: ['', Validators.email],
       phone: ['', [Validators.required]],
       sex: [this.memberSex[0], [Validators.required]],
       memberType: [this.membershipTypes[0], [Validators.required]],
+      departments: [this.departments[0].key, [Validators.required]],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   getFormControl(fControlName: string): any {
     return this.addMemberForm.get(fControlName);
@@ -44,10 +51,21 @@ export class MembershipContentComponent implements OnInit {
 
   onSubmit(): void {
     const info: any = { origin: 'WEBSITE' };
+    const key = 'department';
     Object.keys(this.addMemberForm.controls).forEach((control: string) => {
-      info[control] = this.getFormControl(control).value.trim();
+      if (control === 'memberType') {
+        if (this.getFormControl(control).value === 'VISITOR') {
+          info[key] = null;
+        } else {
+          info[key] = this.getFormControl('departments').value;
+        }
+        info[control] = this.getFormControl(control).value.toString().trim();
+      } else {
+        if (control !== 'departments') {
+          info[control] = this.getFormControl(control).value.toString().trim();
+        }
+      }
     });
-
     this.process(info);
     return info;
   }
@@ -55,7 +73,7 @@ export class MembershipContentComponent implements OnInit {
   process(info: any): void {
     const url = '/servicemanagement/member';
     this.apiService.createResource(url, info).subscribe(
-      (data: any) => {
+      () => {
         this.showOkMessage = true;
         this.clearFields();
         this.clearNotification(true);
@@ -71,7 +89,7 @@ export class MembershipContentComponent implements OnInit {
   clearNotification(result: boolean): void {
     setTimeout(
       // tslint:disable-next-line:typedef
-      function(this: any) {
+      function (this: any) {
         this.showOkMessage = false;
         this.showErrorMessage = false;
         if (result) {
@@ -100,5 +118,9 @@ export class MembershipContentComponent implements OnInit {
     Object.keys(this.addMemberForm.controls).forEach((key) => {
       this.addMemberForm.controls[key].reset();
     });
+  }
+
+  onSelectionChange(value: any): void {
+    this.showDepartments = value === 'FULL MEMBER';
   }
 }
