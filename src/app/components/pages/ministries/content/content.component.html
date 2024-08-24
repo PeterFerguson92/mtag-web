@@ -3,14 +3,12 @@
         <div class="portfolio-filter row">
             <!-- Data -->
             <div class="col-lg-4" *ngFor="let item of ministries">
-                <div class="sigma_portfolio-item">
-                    <img [src]="item.cover_image_path" [alt]="item.name">
+                <div  routerLink="/ministry-details/{{item.id}}" class="sigma_portfolio-item">
+                    <img [src]="getImgPath(item.cover_image_path)" [alt]="item.name">
                     <div class="sigma_portfolio-item-content">
                         <div class="sigma_portfolio-item-content-inner">
                             <h5> <a routerLink="/ministry-details/{{item.id}}">{{item.name}}</a> </h5>
-                            <p class="blockquote bg-transparent">{{item.short_description}}</p>
                         </div>
-                        <a routerLink="/ministry-details/{{item.id}}"><i class="fal fa-plus"></i></a>
                     </div>
                 </div>
             </div>

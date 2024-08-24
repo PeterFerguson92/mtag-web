@@ -3,7 +3,7 @@
         <div class="entry-content">
             <h3 class="entry-title">{{ministry.name}}</h3>
             <div class="sigma_post-single-thumb">
-                <img [src]="ministry.cover_image_path" [alt]="ministry.name">
+                <img [src]="getImgPath(ministry.cover_image_path)" [alt]="ministry.name" [width]="500" [height]="250">
             </div>
             <p>{{ministry.short_description}}</p>
             <div [innerHtml]="ministry.description"></div>
@@ -11,18 +11,18 @@
             <div class="row">
                 <!-- Dta -->
                 <div class="col-md-4" >
-                    <a href="{{ministry.gallery_image_path_1}}" class="gallery-thumb">
-                        <img [src]="ministry.gallery_image_path_1" [alt]="ministry.name">
+                    <a class="gallery-thumb">
+                        <img [src]="getImgPath(ministry.gallery_image_path_1)" [alt]="ministry.name">
                     </a>
                 </div>
                 <div class="col-md-4" >
                   <a href="{{ministry.gallery_image_path_2}}" class="gallery-thumb">
-                      <img [src]="ministry.gallery_image_path_2" [alt]="ministry.name">
+                      <img [src]="getImgPath(ministry.gallery_image_path_2)" [alt]="ministry.name">
                   </a>
               </div>
               <div class="col-md-4" >
                 <a href="{{ministry.gallery_image_path_3}}" class="gallery-thumb">
-                    <img [src]="ministry.gallery_image_path_3" [alt]="ministry.name">
+                    <img [src]="getImgPath(ministry.gallery_image_path_3)" [alt]="ministry.name">
                 </a>
             </div>
                 <!-- Dta -->

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonService {
-  constructor() {}
+  constructor(private sanitizer: DomSanitizer) {}
 
   getTimeDetails(startTime: string, endTime: string): string {
     return `${startTime.substring(0, 5)} - ${endTime.substring(0, 5)}`;
@@ -31,5 +32,11 @@ export class CommonService {
     ];
     const t = new Date(rawDate);
     return t.getDate() + ' ' + monthNames[t.getMonth()] + ' ' + t.getFullYear();
+  }
+
+  getImgPath(id: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://drive.google.com/thumbnail?id=${id}`
+    );
   }
 }
