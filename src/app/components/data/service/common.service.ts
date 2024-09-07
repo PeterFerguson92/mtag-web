@@ -12,7 +12,7 @@ export class CommonService {
   }
 
   getDateInitials(day: string): any {
-    return `${day.substring(3, day.length)}`;
+    return `${day.substring(3)}`;
   }
 
   getFormattedDate(rawDate: string): string {

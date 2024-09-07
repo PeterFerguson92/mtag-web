@@ -9,7 +9,7 @@
                         <a routerLink="/program-details/{{item.id}}">
                             <img [src]="item.cover_image_path" [alt]="item.title">
                         </a>
-                        <div class="event-date-wrapper" [innerHtml]="getDateInitials(item.start_date)"></div>
+                        <!-- <div class="event-date-wrapper" [innerHtml]="getDateInitials(item.start_date)"></div> -->
                     </div>
                     <div class="sigma_post-body">
                         <h5> <a routerLink="/program-details/{{item.id}}">{{item.title}}</a> </h5>
@@ -18,7 +18,7 @@
                         <p>{{item.description}}</p>
                         <div class="sigma_post-meta">
                             <a routerLink="/program-details/{{item.id}}"> <i class="far fa-clock"></i>
-                              {{ getTimeDetails(item.start_time, item.end_time) }}</a>
+                             {{getDateInitials(item.start_date, item.end_date)}} {{ getTimeDetails(item.start_time, item.end_time) }}</a>
                             <a routerLink="/program-details/{{item.id}}"> <i class="far fa-map-marker-alt"></i>
                                 {{item.location}}</a>
                         </div>

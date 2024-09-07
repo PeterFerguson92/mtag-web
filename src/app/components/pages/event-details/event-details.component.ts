@@ -46,7 +46,7 @@ export class EventDetailsComponent implements OnInit {
       case 'Program Details': {
         this.eventType = 'program';
         this.isGalleryVisibile = false;
-        return '/activities/event/' + id;
+        return '/activities/program/' + id;
       }
       case 'Social Details': {
         this.eventType = 'social-events';

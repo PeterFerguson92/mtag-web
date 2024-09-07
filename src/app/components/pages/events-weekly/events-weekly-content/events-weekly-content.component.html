@@ -14,7 +14,6 @@
             <a routerLink="/event-details/{{ item.id }}">
               <img [src]="item.cover_image_path" [alt]="item.title" />
             </a>
-            <div class="event-date-wrapper" [innerHtml]="getDateInitials(item.day)"></div>
           </div>
           <div class="sigma_post-body">
             <h5>

@@ -18,15 +18,20 @@ export class ContentComponent implements OnInit {
     return this.commonService.getTimeDetails(startTime, endTime);
   }
 
-  getDateInitials(rawDate: string): string {
+  getDateInitials(rawDate: string, rawEndDate: string): string {
     const formatted = this.getDate(rawDate);
     const names = formatted.split(' ');
-    let initials = '<span>' + names[0].substring(0, 2) + '</span>';
 
-    if (names.length > 2) {
-      initials += names[names.length - 2].substring(0, 3).toUpperCase() + names[names.length - 1];
+    const formattedEndDate = this.getDate(rawEndDate);
+    const namesEndDate = formattedEndDate.split(' ');
+
+    if (rawEndDate !== rawDate)
+    {
+      return `${names[0]} ${names[1]} ${names[2]} - ${namesEndDate[0]} ${namesEndDate[1]} ${namesEndDate[2]}`;
+    } else
+    {
+      return `${names[0]} ${names[1]} ${names[2]}`;
     }
-    return initials;
   }
 
   getDate(rawDate: string): string {

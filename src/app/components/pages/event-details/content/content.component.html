@@ -21,12 +21,12 @@
           <div class="sidebar-widget event-info">
             <h5 class="widget-title">Information</h5>
             <ul class="sidebar-widget-list">
-              <li><span>Date:</span> {{ getDateInitials(event) }}</li>
+              <li><span>Date:</span> <br>{{ getDateInitials(event) }}</li>
               <li>
                 <span>Time:</span>
-                {{ getTimeDetails(event.start_time, event.end_time) }}
+                <br>{{ getTimeDetails(event.start_time, event.end_time) }}
               </li>
-              <li><span>Location:</span> {{ event.location }}</li>
+              <li><span>Location:</span> <br>{{ event.location }}</li>
             </ul>
           </div>
         </div>

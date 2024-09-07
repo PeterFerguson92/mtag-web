@@ -14,7 +14,8 @@ export class BroadcastComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getResource('/homepage/broadcast').subscribe(
       (data: any) => {
-        if (data.status === 'success') {
+        if (data.status === 'success')
+        {
           this.broadcastInfo = data.result[0];
         }
       },
