@@ -16,10 +16,4 @@ export class ContentComponent implements OnChanges {
       console.log(changes);
     }
   }
-
-  getImgPath(id: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://drive.google.com/thumbnail?id=${id}`
-    );
-  }
 }

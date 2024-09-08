@@ -19,17 +19,8 @@ export class ContentComponent implements OnInit {
     return this.commonService.getTimeDetails(startTime, endTime);
   }
 
-  getDateInitials(rawDate: string): string {
-    console.log(rawDate)
-    const formatted = this.commonService.getFormattedDate(rawDate);
-    const names = formatted.split(' ');
-    let initials = '<span>' + names[0].substring(0, 2) + '</span>';
-
-    if (names.length > 2) {
-      initials +=
-        names[names.length - 2].substring(0, 3).toUpperCase() +
-        names[names.length - 1];
-    }
-    return initials;
+  getDateInitials(rawDate: string, rawEndDate: string): string {
+    return this.commonService.getDisplayDate(rawDate, rawEndDate);
   }
+
 }

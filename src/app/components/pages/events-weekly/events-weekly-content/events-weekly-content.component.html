@@ -21,16 +21,16 @@
             </h5>
             <p>{{ item.short_description }}</p>
             <div class="sigma_post-meta">
-              <a routerLink="/event-details/{{ item.id }}">
-                <i class="far fa-clock"></i> {{ getTimeDetails(item.start_time, item.end_time) }}</a
+              <a>
+                <i class="far fa-map-marker-alt"></i>
+                {{ getDateInitials(item.day) }}</a
               >
-              <a routerLink="/event-details/{{ item.id }}">
-                <i class="far fa-map-marker-alt"></i> {{ item.location }}</a
+              <a>
+                <i class="far fa-clock"></i>
+                {{ getTimeDetails(item.start_time, item.end_time) }}</a
               >
 
-              <a routerLink="/event-details/{{ item.id }}">
-                <i class="far fa-map-marker-alt"></i> {{ getDateInitials(item.day) }}</a
-              >
+              <a> <i class="far fa-map-marker-alt"></i> {{ item.location }}</a>
             </div>
             <div class="section-button d-flex align-items-center">
               <a

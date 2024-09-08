@@ -19,37 +19,7 @@ export class ContentComponent implements OnInit {
   }
 
   getDateInitials(rawDate: string, rawEndDate: string): string {
-    const formatted = this.getDate(rawDate);
-    const names = formatted.split(' ');
-
-    const formattedEndDate = this.getDate(rawEndDate);
-    const namesEndDate = formattedEndDate.split(' ');
-
-    if (rawEndDate !== rawDate)
-    {
-      return `${names[0]} ${names[1]} ${names[2]} - ${namesEndDate[0]} ${namesEndDate[1]} ${namesEndDate[2]}`;
-    } else
-    {
-      return `${names[0]} ${names[1]} ${names[2]}`;
-    }
+    return this.commonService.getDisplayDate(rawDate, rawEndDate);
   }
 
-  getDate(rawDate: string): string {
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    const t = new Date(rawDate);
-    return t.getDate() + ' ' + monthNames[t.getMonth()] + ' ' + t.getFullYear();
-  }
 }

@@ -15,6 +15,21 @@ export class CommonService {
     return `${day.substring(3)}`;
   }
 
+  getDisplayDate(rawDate: string, rawEndDate: string): string {
+    const formatted = this.getFormattedDate(rawDate);
+    const names = formatted.split(' ');
+
+    const formattedEndDate = this.getFormattedDate(rawEndDate);
+    const namesEndDate = formattedEndDate.split(' ');
+
+    if (rawEndDate !== rawDate) {
+      return `${names[0]} ${names[1]} ${names[2]} - ${namesEndDate[0]} ${namesEndDate[1]} ${namesEndDate[2]}`;
+    } else {
+      return `${names[0]} ${names[1]} ${names[2]}`;
+    }
+  }
+
+
   getFormattedDate(rawDate: string): string {
     const monthNames = [
       'January',
