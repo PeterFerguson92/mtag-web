@@ -11,13 +11,14 @@ export class EventDetailsComponent implements OnInit {
   event: any;
   eventType: any;
   isGalleryVisibile: any;
-
+  text = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
+    this.text = `Stay informed about our upcoming events and programs. We have so many more coming up do well to participate and you will surely be impacted and blessed!`;
     const snapshot = this.activatedRoute.snapshot;
     // tslint:disable-next-line:triple-equals
     const id = snapshot.paramMap.get('id');

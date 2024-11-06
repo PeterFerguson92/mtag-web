@@ -1,7 +1,6 @@
-<div class="section section-padding">
+<!-- <div class="section section-padding">
     <div class="container">
         <div class="portfolio-filter row">
-            <!-- Data -->
             <div class="col-lg-4" *ngFor="let item of ministries">
                 <div  routerLink="/ministry-details/{{item.id}}" class="sigma_portfolio-item">
                     <img [src]="item.cover_image_path" [alt]="item.name">
@@ -12,7 +11,42 @@
                     </div>
                 </div>
             </div>
-            <!-- Data -->
         </div>
     </div>
+</div> -->
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8" *ngIf="ministries">
+        <!-- Article Start -->
+        <article
+          class="sigma_post sigma_post-list event-list"
+          *ngFor="let item of ministries"
+        >
+          <div class="sigma_post-thumb">
+            <a routerLink="/ministry-details/{{ item.id }}"
+              >
+              <img [src]="item.cover_image_path" [alt]="item.name" />
+            </a>
+          </div>
+          <div class="sigma_post-body">
+            <h5>
+              <a routerLink="/ministry-details/{{ item.id }}">{{
+                item.name
+              }}</a>
+            </h5>
+            <p>{{ item.short_description }}</p>
+            <div class="sigma_post-meta"></div>
+            <div class="section-button d-flex align-items-center">
+              <a
+                routerLink="/ministry-details/{{ item.id }}"
+                class="sigma_btn-custom"
+                >Read More <i class="far fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
 </div>

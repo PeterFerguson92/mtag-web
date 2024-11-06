@@ -9,13 +9,16 @@ import { ApiService } from '../../data/service/api.service';
 })
 export class MinistryDetailsComponent implements OnInit {
   ministry: any;
-
+  text = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
+    this.text = `With a wide range of ministries and departments we define
+    ourselves as a dynamic Church, we always have something interesting going on for everyone.All events and programs are carefully selected and planned to ensure an impact is made every single time'`;
+
     const snapshot = this.activatedRoute.snapshot;
     const id = snapshot.paramMap.get('id');
 

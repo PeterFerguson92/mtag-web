@@ -9,11 +9,12 @@ import { ApiService } from '../../data/service/api.service';
 export class EventsWeeklyComponent implements OnInit {
   events: any[] = [];
   sortedEvents: any[] = [];
-  constructor(
-    private apiService: ApiService
-  ) {}
+  text = '';
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
+    this.text = `Stay informed about our upcoming events and programs. We have so many more coming up do well to participate and you will surely be impacted and blessed!`;
+
     this.apiService.getResource('/activities/weekly').subscribe(
       (data: any) => {
         if (data.status === 'success') {

@@ -9431,7 +9431,6 @@ small {
 }
 .sigma_portfolio-item .sigma_portfolio-item-content-inner{
   margin-top: auto;
-  transform: translateY(10px);
   opacity: 0;
   visibility: hidden;
   transition: .3s;
