@@ -12,7 +12,14 @@ const routes: Routes = [
   // { path: 'home-v2', loadChildren: () => import('./components/pages/home-two/home-two.module').then(m => m.HomeTwoModule), data: { breadcrumb: 'Homepage' } },
   // { path: 'home-v3', loadChildren: () => import('./components/pages/home-three/home-three.module').then(m => m.HomeThreeModule), data: { breadcrumb: 'Homepage' } },
   // // About
-  // { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule), data: { breadcrumb: 'About Us' } },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./components/pages/about/about.module').then(
+        (m) => m.AboutModule
+      ),
+    data: { breadcrumb: 'About Us' },
+  },
   // // Blog
   // { path: 'blog/cat/:catId', loadChildren: () => import('./components/pages/blog-grid/blog-grid.module').then(m => m.BlogGridModule), data: { breadcrumb: 'Blog Grid' } },
   // { path: 'blog/tag/:tagId', loadChildren: () => import('./components/pages/blog-grid/blog-grid.module').then(m => m.BlogGridModule), data: { breadcrumb: 'Blog Grid' } },
@@ -21,12 +28,38 @@ const routes: Routes = [
   // { path: 'blog-grid', loadChildren: () => import('./components/pages/blog-grid/blog-grid.module').then(m => m.BlogGridModule), data: { breadcrumb: 'Blog Grid' } },
   // { path: 'blog-details/:id', loadChildren: () => import('./components/pages/blog-details/blog-details.module').then(m => m.BlogDetailsModule), data: { breadcrumb: 'Blog Details' } },
   // // Pages
-  { path: 'broadcast', loadChildren: () => import('./components/pages/broadcast/broadcast.module').then(m => m.BroadcastModule), data: { breadcrumb: 'Live Streaming' } },
+  {
+    path: 'broadcast',
+    loadChildren: () =>
+      import('./components/pages/broadcast/broadcast.module').then(
+        (m) => m.BroadcastModule
+      ),
+    data: { breadcrumb: 'Live Streaming' },
+  },
   // Volunteers
-  { path: 'leaders', loadChildren: () => import('./components/pages/volunteers/volunteers.module').then(m => m.VolunteersModule), data: { breadcrumb: 'Leaders' } },
-  { path: 'leader-details/:id', loadChildren: () => import('./components/pages/volunteer-details/volunteer-details.module').then(m => m.VolunteerDetailsModule), data: { breadcrumb: 'Details' } },
+  {
+    path: 'leaders',
+    loadChildren: () =>
+      import('./components/pages/volunteers/volunteers.module').then(
+        (m) => m.VolunteersModule
+      ),
+    data: { breadcrumb: 'Leaders' },
+  },
+  {
+    path: 'leader-details/:id',
+    loadChildren: () =>
+      import(
+        './components/pages/volunteer-details/volunteer-details.module'
+      ).then((m) => m.VolunteerDetailsModule),
+    data: { breadcrumb: 'Details' },
+  },
   // // FAQ's
-  // { path: 'faqs', loadChildren: () => import('./components/pages/faqs/faqs.module').then(m => m.FaqsModule), data: { breadcrumb: 'FAQ\'s' } },
+  {
+    path: 'faqs',
+    loadChildren: () =>
+      import('./components/pages/faqs/faqs.module').then((m) => m.FaqsModule),
+    data: { breadcrumb: "FAQ's" },
+  },
   // // Events
   // { path: 'event/tag/:tagId', loadChildren: () => import('./components/pages/events/events.module').then(m => m.EventsModule), data: { breadcrumb: 'Events' } },
   // { path: 'event/speaker/:speakerId', loadChildren: () => import('./components/pages/events/events.module').then(m => m.EventsModule), data: { breadcrumb: 'Events' } },
@@ -48,9 +81,21 @@ const routes: Routes = [
   // { path: 'shop/tag/:tagId', loadChildren: () => import('./components/pages/shop/shop.module').then(m => m.ShopModule), data: { breadcrumb: 'Shop Grid' } },
   // { path: 'shop/search/:query', loadChildren: () => import('./components/pages/shop/shop.module').then(m => m.ShopModule), data: { breadcrumb: 'Shop Grid' } },
   // { path: 'shop/:minPrice/:maxPrice', loadChildren: () => import('./components/pages/shop/shop.module').then(m => m.ShopModule), data: { breadcrumb: 'Shop Grid' } },
-  // { path: 'shop', loadChildren: () => import('./components/pages/shop/shop.module').then(m => m.ShopModule), data: { breadcrumb: 'Shop Grid' } },
+  {
+    path: 'privacy',
+    loadChildren: () =>
+      import('./components/pages/shop/shop.module').then((m) => m.ShopModule),
+    data: { breadcrumb: 'Privacy Policy' },
+  },
   // { path: 'product-single/:id', loadChildren: () => import('./components/pages/shop-details/shop-details.module').then(m => m.ShopDetailsModule), data: { breadcrumb: 'Shop Details' } },
-  // { path: 'wishlist', loadChildren: () => import('./components/pages/wishlist/wishlist.module').then(m => m.WishlistModule), data: { breadcrumb: 'Wishlist' } },
+  {
+    path: 'terms',
+    loadChildren: () =>
+      import('./components/pages/wishlist/wishlist.module').then(
+        (m) => m.WishlistModule
+      ),
+    data: { breadcrumb: 'Terms & Condition' },
+  },
   // { path: 'cart', loadChildren: () => import('./components/pages/cart/cart.module').then(m => m.CartModule), data: { breadcrumb: 'Cart' } },
   // { path: 'checkout', loadChildren: () => import('./components/pages/checkout/checkout.module').then(m => m.CheckoutModule), data: { breadcrumb: 'Checkout' } },
   // // Contact
@@ -58,14 +103,63 @@ const routes: Routes = [
 
   // // Error page
   // { path: 'error-page', loadChildren: () => import('./components/pages/error-page/error-page.module').then(m => m.ErrorPageModule), data: { breadcrumb: 'Error 404' } },
-  { path: 'about', loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule), data: { breadcrumb: 'About Us' } },
-{ path: 'donation', loadChildren: () => import('./components/pages/donation/donation.module').then(m => m.DonationModule), data: { breadcrumb: 'Give Today' } },
-  { path: 'donation-grid', loadChildren: () => import('./components/pages/donation-grid/donation-grid.module').then(m => m.DonationGridModule), data: { breadcrumb: 'Give Today' } },
-   // // Ministry
-  { path: 'ministry/cat/:catId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
-  { path: 'ministry/client/:clientId', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
-  { path: 'ministries', loadChildren: () => import('./components/pages/ministries/ministries.module').then(m => m.MinistriesModule), data: { breadcrumb: 'Ministries' } },
-  { path: 'ministry-details/:id', loadChildren: () => import('./components/pages/ministry-details/ministry-details.module').then(m => m.MinistryDetailsModule), data: { breadcrumb: 'Ministry Details' } },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./components/pages/about/about.module').then(
+        (m) => m.AboutModule
+      ),
+    data: { breadcrumb: 'About Us' },
+  },
+  {
+    path: 'donation',
+    loadChildren: () =>
+      import('./components/pages/donation/donation.module').then(
+        (m) => m.DonationModule
+      ),
+    data: { breadcrumb: 'Give Today' },
+  },
+  {
+    path: 'donation-grid',
+    loadChildren: () =>
+      import('./components/pages/donation-grid/donation-grid.module').then(
+        (m) => m.DonationGridModule
+      ),
+    data: { breadcrumb: 'Give Today' },
+  },
+  // // Ministry
+  {
+    path: 'ministry/cat/:catId',
+    loadChildren: () =>
+      import('./components/pages/ministries/ministries.module').then(
+        (m) => m.MinistriesModule
+      ),
+    data: { breadcrumb: 'Ministries' },
+  },
+  {
+    path: 'ministry/client/:clientId',
+    loadChildren: () =>
+      import('./components/pages/ministries/ministries.module').then(
+        (m) => m.MinistriesModule
+      ),
+    data: { breadcrumb: 'Ministries' },
+  },
+  {
+    path: 'ministries',
+    loadChildren: () =>
+      import('./components/pages/ministries/ministries.module').then(
+        (m) => m.MinistriesModule
+      ),
+    data: { breadcrumb: 'Ministries' },
+  },
+  {
+    path: 'ministry-details/:id',
+    loadChildren: () =>
+      import(
+        './components/pages/ministry-details/ministry-details.module'
+      ).then((m) => m.MinistryDetailsModule),
+    data: { breadcrumb: 'Ministry Details' },
+  },
   {
     path: 'events',
     loadChildren: () =>
@@ -126,10 +220,8 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () =>
-      import('./components/pages/error-page/error-page.module').then(
-        (m) => m.ErrorPageModule
-      ),
-    data: { breadcrumb: 'Error 404' },
+      import('./components/pages/home/home.module').then((m) => m.HomeModule),
+    data: { breadcrumb: 'Homepage' },
   },
 ];
 

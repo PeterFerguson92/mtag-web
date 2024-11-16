@@ -1,77 +1,145 @@
-<div class="section">
-    <div class="container">
-        <!-- Wishlist Table Start -->
-        <table class="sigma_responsive-table">
-            <thead>
-                <tr>
-                    <th class="remove-item"></th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Availability</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Data -->
-                <tr *ngFor="let item of wishlistItems">
-                    <td class="remove">
-                        <button type="button" class="close-btn close-danger remove-from-cart" (click)="handleDeleteFromWishlist(item)">
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </td>
-                    <td data-title="Product">
-                        <div class="sigma_cart-product-wrapper">
-                            <img [src]="item.image[0]" [alt]="item.title">
-                            <div class="sigma_cart-product-body">
-                                <h6> <a routerLink="/product-single/{{item.id}}">{{item.title}}</a> </h6>
-                            </div>
-                        </div>
-                    </td>
-                    <td data-title="Price"> <strong>{{item.price * (100 - item.discount) / 100 | number:'1.2-2'}}$</strong> </td>
-                    <td data-title="Availability">
-                        <span class="sigma_product-stock instock" *ngIf="item.stock">In Stock</span>
-                        <span class="sigma_product-stock outofstock" *ngIf="!item.stock">Out of Stock</span>
-                    </td>
-                    <td data-title="Actions"> 
-                        <button type="button" class="sigma_btn-custom btn-sm shadow-none"  *ngIf="item.stock" (click)="productAddtoCart(item)">Add to Cart</button>
-                        <button type="button" class="sigma_btn-custom btn-sm shadow-none" *ngIf="!item.stock" disabled>Add to Cart</button>
-                     </td>
-                </tr>
-                <!-- Data -->
-            </tbody>
-        </table>
-        <!-- Wishlist Table End -->
-        <!-- Share Wishlist Start -->
-        <div class="text-center">
-            <h5>Share Your Wishlist</h5>
-            <!-- Post Share Start -->
-            <div class="sigma_post-share">
-                <ul class="sigma_sm justify-content-center">
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- Post Share End -->
-        </div>
-        <!-- Share Wishlist End -->
-    </div>
+<div class="terms">
+  <h4>Terms and Conditions</h4>
+  <p><strong>Last Updated:</strong> 12/11/2024</p>
+
+  <p>
+    Welcome to the official website of
+    <strong>Miracle Temple Assemblies Of God</strong> ("we," "us," "our," or
+    "the Church"). By accessing and using this website (the “Site”), you agree
+    to comply with and be bound by the following terms and conditions. If you do
+    not agree to these terms, please do not use this Site.
+  </p>
+
+  <h4>1. Acceptance of Terms</h4>
+  <p>
+    By using this Site, you acknowledge that you have read, understood, and
+    agree to abide by these Terms and Conditions. We reserve the right to modify
+    these terms at any time without notice, and your continued use of the Site
+    signifies your acceptance of any updates.
+  </p>
+
+  <h4>2. Use of Content</h4>
+  <p>
+    All information, text, graphics, logos, images, audio, video, and other
+    materials available on the Site (“Content”) are for informational,
+    educational, and religious purposes only. You may view, download, and print
+    the Content for personal, non-commercial use. You may not alter, reproduce,
+    distribute, sell, or exploit the Content for any other purpose without our
+    prior written consent.
+  </p>
+
+  <h4>3. Code of Conduct</h4>
+  <p>While using this Site, you agree not to:</p>
+  <ul>
+    <li>
+      Use the Site in any way that may harm, disrupt, or impair the
+      functionality of the Site or its Content.
+    </li>
+    <li>
+      Post or transmit any material that is offensive, defamatory, obscene, or
+      otherwise inappropriate.
+    </li>
+    <li>Use the Site to promote or engage in any unlawful activities.</li>
+    <li>
+      Attempt to gain unauthorized access to any portion of the Site, server, or
+      network.
+    </li>
+  </ul>
+
+  <h4>4. Links to Other Websites</h4>
+  <p>
+    This Site may contain links to third-party websites that are not owned or
+    controlled by <strong>Miracle Temple Assemblies Of God</strong>. We are not
+    responsible for the content, privacy practices, or reliability of any linked
+    sites. These links are provided solely as a convenience, and the inclusion
+    of any link does not imply endorsement by the Church.
+  </p>
+
+  <h4>5. Privacy Policy</h4>
+  <p>
+    We are committed to protecting your privacy. Any personal information
+    collected through this Site is governed by our
+    <a routerLink="/privacy">Privacy Policy</a>. By using this Site, you consent
+    to the collection and use of information as outlined in our We occasionally
+    take photos and video during Church run activities for use in Church,
+    printed materials (including publicity) and on our website and Facebook
+    page. If you object to your image being used in these ways please let one of
+    the Ministers or the Church Office know by phone or email so that we know
+    not to use your image. A copy of our Photo and Video Policy can be obtained
+    through the Church Office or may be viewed on our website.
+  </p>
+
+  <h4>6. Donations and Payments</h4>
+  <p>
+    Donations made through this Site are processed by secure third-party payment
+    providers. By making a donation, you agree to abide by the terms and
+    conditions of these payment processors. We are not responsible for any
+    errors or issues that may arise with your donation. Donations are generally
+    non-refundable, except as required by law.
+  </p>
+
+  <h4>7. Intellectual Property Rights</h4>
+  <p>
+    All Content on this Site is the property of
+    <strong>Miracle Temple Assemblies Of God</strong> or its licensors and is
+    protected by copyright, trademark, and other intellectual property laws.
+    Unauthorized use of any Content may violate these laws. Any use of our
+    Content must include proper attribution to
+    <strong>Miracle Temple Assemblies Of God</strong>.
+  </p>
+
+  <h4>8. Disclaimer of Warranties</h4>
+  <p>
+    This Site and its Content are provided “as is” and “as available” without
+    warranties of any kind, either express or implied. We make no guarantees
+    regarding the accuracy, completeness, or reliability of the Content on the
+    Site.
+  </p>
+
+  <h4>9. Limitation of Liability</h4>
+  <p>
+    To the fullest extent permitted by law,
+    <strong>Miracle Temple Assemblies Of God</strong> shall not be liable for
+    any damages arising out of or in connection with your use or inability to
+    use this Site. This limitation applies to all claims, including but not
+    limited to direct, indirect, incidental, consequential, and punitive
+    damages.
+  </p>
+
+  <h4>10. Indemnification</h4>
+  <p>
+    You agree to indemnify, defend, and hold harmless
+    <strong>Miracle Temple Assemblies Of God</strong>, its officers, employees,
+    and agents from any claims, liabilities, damages, and expenses arising from
+    your use of this Site, your violation of these Terms, or your infringement
+    of any intellectual property or other rights of any third party.
+  </p>
+
+  <h4>11. Governing Law</h4>
+  <p>
+    These Terms are governed by and construed in accordance with the laws of the
+    <strong>united kingdom</strong>, without regard to its conflict of law
+    principles. Any disputes arising from these Terms or your use of this Site
+    shall be resolved exclusively in the courts located in
+    <strong>[City, State, or Country]</strong>.
+  </p>
+
+  <h4>12. Termination</h4>
+  <p>
+    We reserve the right to terminate or restrict your access to the Site at any
+    time, without notice, for any reason, including, but not limited to, your
+    violation of these Terms.
+  </p>
+
+  <h4>13. Contact Information</h4>
+  <p>
+    If you have any questions or concerns regarding these Terms and Conditions,
+    please contact us at:
+  </p>
+  <address>
+    <strong>Miracle Temple Assemblies Of God</strong><br />
+    35 Barton Road, Bletchley, United Kingdom<br />
+    453645645645645<br />
+    info@mtag.org.uk
+  </address>
 </div>

@@ -56,7 +56,7 @@
       {
         "id": 5.1,
         "link": "/ministries",
-        "linkText": "Ministries"
+        "linkText": "See All Ministries"
       }
     ]
   },
@@ -68,7 +68,7 @@
       {
         "id": 6.1,
         "link": "/donation",
-        "linkText": "Donation"
+        "linkText": "Give"
       }
     ]
   }

@@ -18,6 +18,14 @@
             {
                 "title":"Programs",
                 "link":"/events"
+            },
+            {
+                "title":"Terms & Condition",
+                "link":"/terms"
+            },
+            {
+                "title":"Privacy Policy",
+                "link":"/privacy"
             }
         ]
     }

@@ -17,6 +17,7 @@ export class MembershipContentComponent implements OnInit {
   showOkMessage = false;
   showErrorMessage = false;
   showDepartments = false;
+  isTermsAgreed = false;
 
   constructor(
     private router: Router,
@@ -46,7 +47,7 @@ export class MembershipContentComponent implements OnInit {
   }
 
   isSubmitDisabled(): any {
-    return !this.addMemberForm.valid;
+return !this.addMemberForm.valid;
   }
 
   onSubmit(): void {
@@ -122,5 +123,9 @@ export class MembershipContentComponent implements OnInit {
 
   onSelectionChange(value: any): void {
     this.showDepartments = value === 'FULL MEMBER';
+  }
+
+  onPrivacyPolicyClick(event: any): void {
+    this.isTermsAgreed =  event.currentTarget.checked;
   }
 }
