@@ -6,8 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./volunteers.component.css']
 })
 export class VolunteersComponent  {
-  @Input() leaders: any;
-  @Input() header: any;
-  @Input() title: any;
-  @Input() leadershipBoardBackgroundImage: any;
+
+  @Input() bannerPresentationImage: any;
 }

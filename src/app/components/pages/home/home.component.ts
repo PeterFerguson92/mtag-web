@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   leadershipTitle = '';
   leaders: any;
   bannerBackgroundImage = '';
+  bannerPresentationImage = '';
   leadershipBoardBackgroundImage = '';
 
   constructor(private apiService: ApiService) {}
@@ -39,7 +40,6 @@ export class HomeComponent implements OnInit {
             this.videoTitle = result.media
               ? result.media.videos_title
               : null;
-            console.log(result)
             this.videoId = result.media ? result.media.videos[0].url : null;
             this.leaders = result.leadershipBoard
               ? result.leadershipBoard.leaders
@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
               ? result.leadershipBoard.header
               : null;
             this.bannerBackgroundImage = result.banner_background_image;
+            this.bannerPresentationImage = result.banner_presentation_image;
             this.leadershipBoardBackgroundImage =
               result.leadership_board_background_image;
           }
