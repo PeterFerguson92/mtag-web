@@ -49,7 +49,7 @@ export class EventDetailsComponent implements OnInit {
         this.isGalleryVisibile = false;
         return '/activities/program/' + id;
       }
-      case 'Social Details': {
+      case 'Sunday service': {
         this.eventType = 'social-events';
         this.isGalleryVisibile = true;
         return '/activities/socialevent/' + id;

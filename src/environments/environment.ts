@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   // apiUrl: 'https://mtag-admin-production.up.railway.app/api',
   // apiUrl: 'https://mtag-admin-qa.up.railway.app/api',
-  apiUrl: 'https://mtag-server-55eca0b705a8.herokuapp.com/api',
-  // apiUrl: 'http://localhost:8000/api'
+  // apiUrl: 'https://mtag-server-55eca0b705a8.herokuapp.com/api',
+  apiUrl: 'http://localhost:8000/api'
 };
 
 /*
