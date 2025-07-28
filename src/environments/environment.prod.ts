@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://mtag-server-55eca0b705a8.herokuapp.com/api',
+  apiUrl: 'https://mtag-admin-2a9dce5c51d2.herokuapp.com/api',
 };
